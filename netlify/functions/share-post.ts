@@ -1,12 +1,18 @@
-// netlify/functions/share-post.ts  ★置き換え
 import { getStore } from "@netlify/blobs";
+import type { Handler } from "@netlify/functions";
 
-export default async (req) => {
-  const { deck } = await req.json();             // POST 本文
-  const key  = crypto.randomUUID();              // 一意キー
-  await getStore("decks").setJSON(key, deck);    // 初回でストア自動生成
-  return new Response(JSON.stringify({ key }), {
-    status: 200,
-    headers: { "Content-Type": "application/json" },
-  });
+export const handler: Handler = async (event) => {
+  const { deck } = JSON.parse(event.body || "{}");
+  if (!deck) return { statusCode: 400, body: "deck is required" };
+
+  const store = getStore("decks");
+  const key = crypto.randomUUID();
+
+  // ← ここがポイント
+  await store.set(key, deck, { type: "json" });
+
+  return {
+    statusCode: 200,
+    body: JSON.stringify({ key }),
+  };
 };
