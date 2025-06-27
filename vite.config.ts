@@ -41,7 +41,10 @@ export default defineConfig({
     // produce sourcemaps for debug builds
     sourcemap: !!process.env.TAURI_DEBUG,
     rollupOptions: {
-      external: ["@tiptap/pm/state"],   // ★ 追加：ここがポイント！
+      external: [
+        '@tiptap/pm/state',       
+        '@tiptap/extension-hard-break' 
+      ],   
     },
   },
 });
