@@ -7,7 +7,7 @@ export default function ShareButton({ deck }: { deck: any }) {
   async function share() {
     if (!deck) return;
     setLoading(true);
-    const res = await fetch("/api/share", {
+    const res = await fetch("/.netlify/functions/share-post", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ deck })
