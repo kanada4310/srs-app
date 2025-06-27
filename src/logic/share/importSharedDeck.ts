@@ -1,5 +1,5 @@
 // src/logic/share/importSharedDeck.ts
-import { db } from "../../db";      // src/logic/share から 2 階層上
+import { db } from "../../db"; // 相対パスに合わせる
 import { Deck } from "@/logic/deck/deck";
 
 export async function importSharedDeck(deck: Deck) {
