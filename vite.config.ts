@@ -40,11 +40,6 @@ export default defineConfig({
     minify: !process.env.TAURI_DEBUG ? "esbuild" : false,
     // produce sourcemaps for debug builds
     sourcemap: !!process.env.TAURI_DEBUG,
-    rollupOptions: {
-      external: [
-        '@tiptap/pm/state',       
-        '@tiptap/extension-hard-break' 
-      ],   
-    },
+    //rollupOptions: {},
   },
 });
