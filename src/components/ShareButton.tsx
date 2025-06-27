@@ -13,7 +13,7 @@ export default function ShareButton({ deck }: { deck: any }) {
       body: JSON.stringify({ deck })
     });
     const { key } = await res.json();
-    const url = `${location.origin}/#k=${key}`;
+    const url = `${location.origin}/k/${key}`;   // ← # を外し /k/ に
     await navigator.clipboard.writeText(url);
     alert(`共有リンクをコピーしました:\n${url}`);
     setLoading(false);

@@ -20,6 +20,8 @@ import Header from "./app/shell/Header/Header";
 import Sidebar from "./app/shell/Sidebar/Sidebar";
 import i18n from "./i18n";
 import { useSetting } from "./logic/settings/hooks/useSetting";
+import { importSharedDeck } from "./logic/share/importSharedDeck";
+
 
 function useRestoreLanguage() {
   const [language] = useSetting("language");
@@ -39,6 +41,21 @@ export default function App() {
     key: "registered",
     defaultValue: false,
   });
+
+  // 共有リンク (/k/xxxx) で開いたらデッキを取り込む
+  useEffect(() => {
+    const path = window.location.pathname;      // 例 /k/abcd1234
+    if (path.startsWith("/k/")) {
+      const key = path.split("/k/")[1];
+      fetch("/.netlify/functions/share-get/" + key)
+        .then((res) => res.json())
+        .then((deck) => {
+          importSharedDeck(deck);               // Dexie に保存
+          alert("共有デッキを取り込みました！");
+        })
+        .catch(() => alert("共有デッキの取得に失敗しました"));
+    }
+  }, []);
 
   const routeIsLearn = useLocation().pathname.includes("learn");
   useEffect(() => {
