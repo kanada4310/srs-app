@@ -76,6 +76,8 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
+    "@netlify/blobs": "^10.0.2",
+    "@netlify/functions": "^4.1.8",
     "@tauri-apps/cli": "^2.2.2",
     "@tiptap/core": "^2.23.0",
     "@tiptap/extension-hard-break": "^2.23.0",
