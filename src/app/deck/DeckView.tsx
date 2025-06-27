@@ -15,6 +15,7 @@ import HeroDeckSection from "./HeroDeckSection/HeroDeckSection";
 import SubDeckSection from "./SubDeckSection";
 import SuperDecksBreadcrumbs from "./SuperDecksBreadcrumbs/SuperDecksBreadcrumbs";
 import TitleSection from "./TitleSection";
+import ShareButton from "@/components/ShareButton";
 
 function DeckView() {
   const navigate = useNavigate();
@@ -46,6 +47,7 @@ function DeckView() {
       </AppHeaderContent>
       <Stack gap="xl" align="start" w="100%" maw="600px" pt="lg">
         <TitleSection deck={deck} />
+        {deck && <ShareButton deck={deck} />}
         <HeroDeckSection deck={deck} isDeckReady={isDeckReady} />
 
         <Tabs defaultValue={"subdecks"} w="100%" variant="outline">
