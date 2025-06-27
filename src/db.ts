@@ -1,8 +1,17 @@
-// src/db.ts
-import Dexie from "dexie";
+import Dexie, { Table } from "dexie";
+import { Deck } from "./logic/deck/deck";
 
-/* ↓アプリ全体で共有するデータベース（最小構成）*/
-export const db = new Dexie("SkolaDB");
-db.version(1).stores({
-  decks: "id"        // 主キーだけ設定
-});
+// Deck 型は既にプロジェクト内にあるので再利用
+export class AppDB extends Dexie {
+  // ← ここで decks テーブルを宣言
+  decks!: Table<Deck, string>; // 第2型引数は主キーの型
+
+  constructor() {
+    super("app-db");
+    this.version(1).stores({
+      decks: "&id,name" // id を主キーにする例（あとで好きに変更OK）
+    });
+  }
+}
+
+export const db = new AppDB();
