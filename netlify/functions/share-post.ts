@@ -9,8 +9,12 @@ export const handler: Handler = async (event) => {
     return { statusCode: 400, body: "deck is required" };
   }
 
-  const store = getStore("decks", { siteID: "5fbf1edb-df8b-4ed3-a58b-9d38068e80dc", token: "nfp_n5jcCy5zpb7gnkDp1EXFqq6bFKB3GLxP0cdd" });
-  const key = crypto.randomUUID();
+  const store = getStore("decks");
+  console.log("NETLIFY_BLOBS_SITE_ID:", process.env.NETLIFY_BLOBS_SITE_ID);
+  console.log("NETLIFY_BLOBS_TOKEN:", process.env.NETLIFY_BLOBS_TOKEN);
+  console.log("NETLIFY_BLOBS_SITE_ID:", process.env.NETLIFY_BLOBS_SITE_ID);
+  console.log("NETLIFY_BLOBS_TOKEN:", process.env.NETLIFY_BLOBS_TOKEN);
+  const key = crypto.randomUUID(); // Added a comment to force rebuild
 
   // ← ここがポイント
   try {
