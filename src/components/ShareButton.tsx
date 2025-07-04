@@ -7,16 +7,30 @@ export default function ShareButton({ deck }: { deck: any }) {
   async function share() {
     if (!deck) return;
     setLoading(true);
-    const res = await fetch("/.netlify/functions/share-post", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ deck })
-    });
-    const { key } = await res.json();
-    const url = `${location.origin}/k/${key}`;   // ← # を外し /k/ に
-    await navigator.clipboard.writeText(url);
-    alert(`共有リンクをコピーしました:\n${url}`);
-    setLoading(false);
+    try {
+      const res = await fetch("/.netlify/functions/share-post", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ deck }),
+      });
+
+      if (!res.ok) {
+        const errorData = await res.text();
+        throw new Error(
+          `Server error: ${res.status} ${res.statusText} - ${errorData}`
+        );
+      }
+
+      const { key } = await res.json();
+      const url = `${location.origin}/k/${key}`; // ← # を外し /k/ に
+      await navigator.clipboard.writeText(url);
+      alert(`共有リンクをコピーしました:\n${url}`);
+    } catch (error: any) {
+      console.error("Error sharing deck:", error);
+      alert(`共有に失敗しました: ${error.message || "不明なエラー"}`);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (

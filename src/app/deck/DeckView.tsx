@@ -1,4 +1,5 @@
 import MissingObject from "@/components/MissingObject";
+import ShareButton from "@/components/ShareButton";
 import { useScrollResetOnLocationChange } from "@/lib/ui";
 import { useDeckFromUrl } from "@/logic/deck/hooks/useDeckFromUrl";
 import { useSuperDecks } from "@/logic/deck/hooks/useSuperDecks";
@@ -15,7 +16,6 @@ import HeroDeckSection from "./HeroDeckSection/HeroDeckSection";
 import SubDeckSection from "./SubDeckSection";
 import SuperDecksBreadcrumbs from "./SuperDecksBreadcrumbs/SuperDecksBreadcrumbs";
 import TitleSection from "./TitleSection";
-import ShareButton from "@/components/ShareButton";
 
 function DeckView() {
   const navigate = useNavigate();

@@ -6,8 +6,8 @@ export const handler: Handler = async (event) => {
   const store = getStore("decks");
 
   // ← ここも getJSON → get(..., {type:"json"})
-  const deck = await store.get(key, { type: "json" }); // getJSON も無い
-  
+  const deck = await store.get(key, { type: "json" });
+
   if (!deck) return { statusCode: 404, body: "Not found" };
   return { statusCode: 200, body: JSON.stringify(deck) };
 };

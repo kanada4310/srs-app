@@ -9,7 +9,7 @@ export class AppDB extends Dexie {
   constructor() {
     super("app-db");
     this.version(1).stores({
-      decks: "&id,name" // id を主キーにする例（あとで好きに変更OK）
+      decks: "&id,name", // id を主キーにする例（あとで好きに変更OK）
     });
   }
 }

@@ -22,7 +22,6 @@ import i18n from "./i18n";
 import { useSetting } from "./logic/settings/hooks/useSetting";
 import { importSharedDeck } from "./logic/share/importSharedDeck";
 
-
 function useRestoreLanguage() {
   const [language] = useSetting("language");
   useEffect(() => {
@@ -44,13 +43,13 @@ export default function App() {
 
   // 共有リンク (/k/xxxx) で開いたらデッキを取り込む
   useEffect(() => {
-    const path = window.location.pathname;      // 例 /k/abcd1234
+    const path = window.location.pathname; // 例 /k/abcd1234
     if (path.startsWith("/k/")) {
       const key = path.split("/k/")[1];
       fetch("/.netlify/functions/share-get/" + key)
         .then((res) => res.json())
         .then((deck) => {
-          importSharedDeck(deck);               // Dexie に保存
+          importSharedDeck(deck); // Dexie に保存
           alert("共有デッキを取り込みました！");
         })
         .catch(() => alert("共有デッキの取得に失敗しました"));

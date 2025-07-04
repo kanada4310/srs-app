@@ -2,8 +2,8 @@ import path from "node:path";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import Checker from "vite-plugin-checker";
+import { VitePWA } from "vite-plugin-pwa";
 import viteTsconfigPaths from "vite-tsconfig-paths";
-import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
   base: "/",
@@ -20,23 +20,24 @@ export default defineConfig({
     },
   },
   plugins: [
-    react(), 
-    viteTsconfigPaths(), 
+    react(),
+    viteTsconfigPaths(),
     Checker({ typescript: true }),
     VitePWA({
-      registerType: 'autoUpdate',  // バージョンが変われば自動更新
-      manifest: {                  // スマホが読むアプリ情報
-        name: 'SRS Flashcards',
-        short_name: 'SRS',
-        start_url: '/',
-        display: 'standalone',     // 住所バーを消して全画面
-        background_color: '#ffffff',
-        theme_color: '#1976d2',
+      registerType: "autoUpdate", // バージョンが変われば自動更新
+      manifest: {
+        // スマホが読むアプリ情報
+        name: "SRS Flashcards",
+        short_name: "SRS",
+        start_url: "/",
+        display: "standalone", // 住所バーを消して全画面
+        background_color: "#ffffff",
+        theme_color: "#1976d2",
         icons: [
-          { src: '/icons/icon-192.png', sizes: '192x192', type: 'image/png' },
-          { src: '/icons/icon-512.png', sizes: '512x512', type: 'image/png' }
-        ]
-      }
+          { src: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+          { src: "/icons/icon-512.png", sizes: "512x512", type: "image/png" },
+        ],
+      },
     }),
   ],
   clearScreen: false,
