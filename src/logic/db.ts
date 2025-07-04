@@ -16,7 +16,7 @@ export class Database extends Dexie {
   settings!: Table<Settings<keyof SettingsValues>>;
 
   constructor() {
-    super("skola_db", { addons: [dexieCloud], cache: "disabled" });
+    super("swallow_db", { addons: [dexieCloud], cache: "disabled" });
     this.version(16).stores({
       cards: "id, note, deck",
       decks: "id, *cards, *notes, *subDecks, *superDecks",

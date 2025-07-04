@@ -27,7 +27,7 @@ export default function WelcomeView() {
         <div style={{ position: "relative" }}>
           <Image
             src="logo.svg"
-            alt="Skola Logo"
+            alt="Swallow Logo"
             maw="4rem"
             style={{
               position: "absolute",
@@ -36,10 +36,10 @@ export default function WelcomeView() {
               zIndex: -1,
             }}
           />
-          <Image src="logo.svg" alt="Skola Logo" maw="4rem" />
+          <Image src="logo.svg" alt="Swallow Logo" maw="4rem" />
         </div>
         <Stack gap="xs">
-          <Title order={1}>Welcome to Skola!</Title>
+          <Title order={1}>Welcome to Swallow!</Title>
           <Text fz="sm">A flash card learning app here in your browser.</Text>
           {[
             "No sign-up required",
@@ -72,7 +72,7 @@ export default function WelcomeView() {
         <Stack gap="xs">
           <Title order={3}>About the project</Title>
           <Text fz="sm">
-            Skola is a project developed by a student aiming to provide an
+            Swallow is a project developed by a student aiming to provide an
             alternative to spaced repetition apps like Anki and SuperMemo. It is
             open-source and completely free to use. The focus lies on creating a
             fun to use and intuitive experience. You can find more information
@@ -86,7 +86,7 @@ export default function WelcomeView() {
         <Stack gap="xs">
           <Title order={3}>About privacy</Title>
           <Text fz="sm">
-            Privacy is a priority of this project. Skola saves decks and cards
+            Privacy is a priority of this project. Swallow saves decks and cards
             locally in your browser using the IndexedDB API. Furthermore local
             storage and cookies are being used to store relevant data. We do not
             collect any personal data. Currently, a syncing feature is under

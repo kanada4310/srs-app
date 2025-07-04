@@ -9,7 +9,7 @@ export const handler: Handler = async (event) => {
   const key = crypto.randomUUID();
 
   // ← ここがポイント
-  await store.set(key, deck, { type: "json" });
+  await store.set(key, deck, { type: "json" }); // setJSON は無い
 
   return {
     statusCode: 200,
