@@ -9,7 +9,7 @@ export const handler: Handler = async (event) => {
     return { statusCode: 400, body: "deck is required" };
   }
 
-  const store = getStore("decks");
+  const store = getStore("decks", { siteID: "5fbf1edb-df8b-4ed3-a58b-9d38068e80dc", token: "nfp_n5jcCy5zpb7gnkDp1EXFqq6bFKB3GLxP0cdd" });
   const key = crypto.randomUUID();
 
   // ← ここがポイント
