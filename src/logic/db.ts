@@ -31,7 +31,7 @@ export class Database extends Dexie {
 export const db = new Database();
 
 db.cloud.configure({
-  databaseUrl: "https://zo30f12v5.dexie.cloud",
+  databaseUrl: "https://zl38577hf.dexie.cloud",
   tryUseServiceWorker: true,
   customLoginGui: true,
 });
