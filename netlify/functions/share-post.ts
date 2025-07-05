@@ -1,7 +1,8 @@
-import { getStore } from "@netlify/blobs";
+import { getStore, connectLambda } from "@netlify/blobs";
 import type { Handler } from "@netlify/functions";
 
 export const handler: Handler = async (event) => {
+  connectLambda(event);
   const { deck } = JSON.parse(event.body || "{}");
   console.log("Received event body:", event.body);
   if (!deck) {
