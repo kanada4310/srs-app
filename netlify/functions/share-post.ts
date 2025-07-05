@@ -1,4 +1,4 @@
-import { getStore, connectLambda } from "@netlify/blobs";
+import { connectLambda, getStore } from "@netlify/blobs";
 import type { Handler } from "@netlify/functions";
 
 export const handler: Handler = async (event) => {
