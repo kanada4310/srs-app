@@ -14,6 +14,7 @@ import { updateNoteContent } from "@/logic/note/updateNoteContent";
 import common from "@/style/CommonStyles.module.css";
 import { Divider, Stack, Title } from "@mantine/core";
 import { useState } from "react";
+import DOMPurify from "dompurify";
 
 export const BasicNoteTypeAdapter: NoteTypeAdapter<NoteType.Basic> = {
   async createNote(params: { front: string; back: string }, deck: Deck) {
