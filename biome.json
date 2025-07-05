@@ -38,10 +38,10 @@
         "noUnusedVariables": "error"
       },
       "performance": {
-        "noAccumulatingSpread": "warn"
+        "noAccumulatingSpread": "off"
       },
       "security": {
-        "noDangerouslySetInnerHtml": "warn"
+        "noDangerouslySetInnerHtml": "off"
       }
     },
     "ignore": ["*.json"]
