@@ -1,3 +1,4 @@
+import DOMPurify from "dompurify";
 import { Card } from "@/logic/card/card";
 import { NoteContent } from "@/logic/note/NoteContent";
 import { NoteType } from "@/logic/note/note";
@@ -13,9 +14,10 @@ export default function displayDoubleSidedQuestion(
         order={3}
         fw={600}
         dangerouslySetInnerHTML={{
-          __html:
+          __html: DOMPurify.sanitize(
             (card.content.frontIsField1 ? content?.field1 : content?.field2) ??
-            "error",
+              "error",
+          ),
         }}
       ></Title>
     );

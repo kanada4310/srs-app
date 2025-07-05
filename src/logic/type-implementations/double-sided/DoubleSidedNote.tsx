@@ -1,3 +1,4 @@
+import DOMPurify from "dompurify";
 import DoubleSidedCardEditor from "@/app/editor/NoteEditor/DoubleSidedCardEditor";
 import { NoteEditorProps, NoteTypeAdapter } from "@/logic/NoteTypeAdapter";
 import { Card, HTMLtoPreviewString } from "@/logic/card/card";
@@ -26,10 +27,11 @@ export const DoubleSidedNoteTypeAdapter: NoteTypeAdapter<NoteType.DoubleSided> =
             order={3}
             fw={600}
             dangerouslySetInnerHTML={{
-              __html:
+              __html: DOMPurify.sanitize(
                 (card.content.frontIsField1
                   ? content?.field1
                   : content?.field2) ?? "error",
+              ),
             }}
           ></Title>
         );
@@ -46,10 +48,11 @@ export const DoubleSidedNoteTypeAdapter: NoteTypeAdapter<NoteType.DoubleSided> =
         return (
           <span
             dangerouslySetInnerHTML={{
-              __html:
+              __html: DOMPurify.sanitize(
                 (card.content.frontIsField1
                   ? content?.field2
                   : content?.field1) ?? "error",
+              ),
             }}
           ></span>
         );
@@ -72,13 +75,13 @@ export const DoubleSidedNoteTypeAdapter: NoteTypeAdapter<NoteType.DoubleSided> =
           <Title
             order={3}
             fw={600}
-            dangerouslySetInnerHTML={{ __html: note.content.field1 ?? "" }}
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(note.content.field1 ?? "") }}
           />
           {showAllAnswers !== "none" && (
             <>
               <Divider className={common.lightBorderColor} />
               <div
-                dangerouslySetInnerHTML={{ __html: note.content.field2 ?? "" }}
+                dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(note.content.field2 ?? "") }}
               />
             </>
           )}

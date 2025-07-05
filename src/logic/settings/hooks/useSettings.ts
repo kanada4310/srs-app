@@ -10,7 +10,7 @@ export function useSettings(): [SettingsValues, boolean] {
         .toArray()
         .then((settings) => [
           (settings ?? []).reduce(
-            (acc, cur) => ({ ...acc, [cur.key]: cur.value }),
+            (acc, cur) => Object.assign(acc, { [cur.key]: cur.value }),
             defaultSettings
           ),
           true,
