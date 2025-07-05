@@ -1,4 +1,3 @@
-import DOMPurify from "dompurify";
 import DoubleSidedCardEditor from "@/app/editor/NoteEditor/DoubleSidedCardEditor";
 import { NoteEditorProps, NoteTypeAdapter } from "@/logic/NoteTypeAdapter";
 import { Card, HTMLtoPreviewString } from "@/logic/card/card";
@@ -8,6 +7,7 @@ import { NoteContent } from "@/logic/note/NoteContent";
 import { Note, NoteType } from "@/logic/note/note";
 import common from "@/style/CommonStyles.module.css";
 import { Divider, Stack, Title } from "@mantine/core";
+import DOMPurify from "dompurify";
 import createDoubleSidedNote from "./createDoubleSidedNote";
 import { updateDoubleSidedNote } from "./updateDoubleSidedNote";
 
@@ -30,7 +30,7 @@ export const DoubleSidedNoteTypeAdapter: NoteTypeAdapter<NoteType.DoubleSided> =
               __html: DOMPurify.sanitize(
                 (card.content.frontIsField1
                   ? content?.field1
-                  : content?.field2) ?? "error",
+                  : content?.field2) ?? "error"
               ),
             }}
           ></Title>
@@ -51,7 +51,7 @@ export const DoubleSidedNoteTypeAdapter: NoteTypeAdapter<NoteType.DoubleSided> =
               __html: DOMPurify.sanitize(
                 (card.content.frontIsField1
                   ? content?.field2
-                  : content?.field1) ?? "error",
+                  : content?.field1) ?? "error"
               ),
             }}
           ></span>
@@ -75,13 +75,17 @@ export const DoubleSidedNoteTypeAdapter: NoteTypeAdapter<NoteType.DoubleSided> =
           <Title
             order={3}
             fw={600}
-            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(note.content.field1 ?? "") }}
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(note.content.field1 ?? ""),
+            }}
           />
           {showAllAnswers !== "none" && (
             <>
               <Divider className={common.lightBorderColor} />
               <div
-                dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(note.content.field2 ?? "") }}
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(note.content.field2 ?? ""),
+                }}
               />
             </>
           )}

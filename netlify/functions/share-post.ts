@@ -26,7 +26,9 @@ export const handler: Handler = async (event) => {
     console.error("Error in share-post function:", error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: error.message || "An unknown error occurred" }),
+      body: JSON.stringify({
+        error: error.message || "An unknown error occurred",
+      }),
     };
   }
 };
