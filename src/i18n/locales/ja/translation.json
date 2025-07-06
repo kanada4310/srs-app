@@ -13,7 +13,7 @@
       "statistics": "統計"
     }
   },
-  "deck": {
+  deck": {
     "add-cards": "カードを追加！",
     "add-cards-tooltip": "このデッキにカードを追加",
     "create-deck-tooltip": "クリックして新しいデッキを作成",
@@ -61,10 +61,15 @@
       "add-subdeck-button": "追加",
       "load-fail": "サブデッキの読み込みに失敗しました。",
       "title": "サブデッキ"
+    },
+    "delete-modal": {
+      "title": "デッキを削除",
+      "description": "このデッキを削除しようとしています。この操作は元に戻せません。続行しますか？"
     }
   },
   "edit-card": {
-    "edit-note": "ノートを編集"
+    "edit-note": "ノートを編集",
+    "open-in-manage-cards": "カード管理で開く"
   },
   "global": {
     "cancel": "キャンセル",

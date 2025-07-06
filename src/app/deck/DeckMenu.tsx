@@ -154,10 +154,8 @@ function DeckMenu({ deck, isDeckReady, setDeckOptionsOpened }: DeckMenuProps) {
           <DangerousConfirmModal
             dangerousAction={() => handleDelete()}
             dangerousDependencies={[deck]}
-            dangerousTitle={"Delete Deck"}
-            dangerousDescription={
-              "You are about to delete this deck. This cannot be undone. Do you wish to continue?"
-            }
+            dangerousTitle={t("deck.delete-modal.title")}
+            dangerousDescription={t("deck.delete-modal.description")}
             opened={deleteModalOpened}
             setOpened={setDeleteModalOpened}
           />
