@@ -28,7 +28,10 @@ export default function SelectDecksHeader({
         searchable
         nothingFoundMessage={t("select-decks-header.no-decks-found")}
         leftSection={<IconCards size={16} />}
-        data={(disableAll ? [] : [{ value: "", label: t("global.all") }]).concat(
+        data={(disableAll
+          ? []
+          : [{ value: "", label: t("global.all") }]
+        ).concat(
           decks?.map((deck) => ({
             value: deck.id,
             label: deck.name,
