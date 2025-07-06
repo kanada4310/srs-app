@@ -3,6 +3,7 @@ import { NoteSortFunction, NoteSorts } from "@/logic/note/sort";
 import { useMediaQuery } from "@mantine/hooks";
 import clsx from "clsx";
 import { DataTable, DataTableSortStatus } from "mantine-datatable";
+import { t } from "i18next";
 import { useEffect, useState } from "react";
 import classes from "./NoteTable.module.css";
 
@@ -49,7 +50,7 @@ function NoteTable({
       columns={[
         {
           accessor: "sortField",
-          title: "Name",
+          title: t("manage-cards.table.column-name"),
           ellipsis: true,
           width: 200,
           resizable: true,
@@ -59,7 +60,7 @@ function NoteTable({
         },
         {
           accessor: "creationDate",
-          title: "Creation Date",
+          title: t("manage-cards.table.column-creation-date"),
           render: (note) => note.creationDate.toLocaleDateString(),
           resizable: true,
           sortable: true,
@@ -67,7 +68,7 @@ function NoteTable({
         },
         {
           accessor: "content.type",
-          title: "Note Type",
+          title: t("manage-cards.table.column-note-type"),
           resizable: true,
           sortable: true,
           sortKey: "byType",

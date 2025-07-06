@@ -107,7 +107,10 @@
   },
   "manage-cards": {
     "table": {
-      "no-cards-found": "カードが見つかりません"
+      "no-cards-found": "カードが見つかりません",
+      "column-name": "名前",
+      "column-creation-date": "作成日",
+      "column-note-type": "ノートタイプ"
     },
     "title": "カードを管理"
   },
