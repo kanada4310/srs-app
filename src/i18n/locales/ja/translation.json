@@ -232,12 +232,14 @@
     "decks-title": "デッキ"
   },
   "spotlight": {
-    "no-results": "結果なし"
+    "no-results": "結果なし",
+    "search-placeholder": "検索..."
   },
   "statistics": {
     "title": "統計"
   },
   "today": {
-    "title": "今日"
+    "title": "今日",
+    "planned-feature-message": "今日のビューは計画中の機能です。ここでは、レビューが必要な今後のデッキのフィードが提供されます。"
   }
 }

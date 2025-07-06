@@ -133,7 +133,7 @@ export default function SpotlightCard({
             <>
               <span className={classes.spotlightButtonSection}>
                 <IconSearch size={14} className={classes.spotlightButtonIcon} />
-                Search
+                {t("spotlight.search-placeholder")}
               </span>
               {showShortcutHints && (
                 <span className={classes.spotlightButtonSection}>
@@ -161,7 +161,7 @@ export default function SpotlightCard({
         scrollable={true}
         searchProps={{
           leftSection: <IconSearch size={18} stroke={2} />,
-          placeholder: "Search...",
+          placeholder: t("spotlight.search-placeholder"),
         }}
         transitionProps={{ transition: "pop", duration: 100 }}
       />
