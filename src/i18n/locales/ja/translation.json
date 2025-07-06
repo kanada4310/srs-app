@@ -236,7 +236,30 @@
     "search-placeholder": "検索..."
   },
   "statistics": {
-    "title": "統計"
+    "title": "統計",
+    "showing-statistics-of": "統計を表示中",
+    "timeframe": {
+      "week": "週",
+      "month": "月",
+      "year": "年"
+    },
+    "chart": {
+      "review": "復習",
+      "learning": "学習中",
+      "new": "新規"
+    },
+    "card-state": {
+      "new": "新規",
+      "learning": "学習中",
+      "review": "復習",
+      "not-due": "未到来"
+    },
+    "card-rating": {
+      "again": "もう一度",
+      "hard": "難しい",
+      "good": "良い",
+      "easy": "簡単"
+    }
   },
   "today": {
     "title": "今日",

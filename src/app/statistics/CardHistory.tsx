@@ -35,13 +35,13 @@ export default function CardHistory({ card }: CardHistoryProps) {
         tickFormatter: (value) => {
           switch (value) {
             case 1:
-              return "Again";
+              return t("statistics.card-rating.again");
             case 2:
-              return "Hard";
+              return t("statistics.card-rating.hard");
             case 3:
-              return "Good";
+              return t("statistics.card-rating.good");
             case 4:
-              return "Easy";
+              return t("statistics.card-rating.easy");
           }
           return "";
         },

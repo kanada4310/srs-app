@@ -80,22 +80,22 @@ function StatsView() {
       const simplifiedStateData = getSimplifiedStatesOf(cards ?? []);
       setCardStateData([
         {
-          name: "New",
+          name: t("statistics.card-state.new"),
           value: simplifiedStateData.new,
           color: "grape.6",
         },
         {
-          name: "Learning",
+          name: t("statistics.card-state.learning"),
           value: simplifiedStateData.learning,
           color: "orange.6",
         },
         {
-          name: "Review",
+          name: t("statistics.card-state.review"),
           value: simplifiedStateData.review,
           color: "blue.6",
         },
         {
-          name: "Not Due",
+          name: t("statistics.card-state.not-due"),
           value: simplifiedStateData.notDue,
           color: "gray.6",
         },
@@ -107,13 +107,13 @@ function StatsView() {
     <>
       <AppHeaderContent>
         <Center>
-          <Title order={3}>Statistics</Title>
+          <Title order={3}>{t("statistics.title")}</Title>
         </Center>
       </AppHeaderContent>
 
       <Stack w="100%" maw="600px" gap="xl">
         <SelectDecksHeader
-          label="Showing Statistics of"
+          label={t("statistics.showing-statistics-of")}
           decks={decks}
           onSelect={(deckId) => navigate(`/stats/${deckId}`)}
         />
@@ -121,9 +121,9 @@ function StatsView() {
         <Stack gap="xs">
           <SegmentedControl
             data={[
-              { value: "week", label: "Week" },
-              { value: "month", label: "Month" },
-              { value: "year", label: "Year" },
+              { value: "week", label: t("statistics.timeframe.week") },
+              { value: "month", label: t("statistics.timeframe.month") },
+              { value: "year", label: t("statistics.timeframe.year") },
             ]}
             size="xs"
             value={timeFrame}
@@ -143,15 +143,15 @@ function StatsView() {
             series={[
               {
                 name: State.Review.toString(),
-                label: "Review",
+                label: t("statistics.chart.review"),
                 color: "blue.6",
               },
               {
                 name: State.Learning.toString(),
-                label: "Learning",
+                label: t("statistics.chart.learning"),
                 color: "orange.6",
               },
-              { name: State.New.toString(), label: "New", color: "grape.6" },
+              { name: State.New.toString(), label: t("statistics.chart.new"), color: "grape.6" },
             ]}
             tickLine="y"
           />

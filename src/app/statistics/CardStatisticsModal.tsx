@@ -10,7 +10,7 @@ interface DeckOptionsModalProps extends ModalProps {
 
 function DeckOptionsModal({ opened, setOpened, card }: DeckOptionsModalProps) {
   return (
-    <Modal opened={opened} onClose={() => setOpened(false)} title="Statistics">
+    <Modal opened={opened} onClose={() => setOpened(false)} title={t("statistics.title")}>
       <CardHistory card={card} />
     </Modal>
   );
