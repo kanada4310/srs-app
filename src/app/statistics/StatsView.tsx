@@ -151,7 +151,11 @@ function StatsView() {
                 label: t("statistics.chart.learning"),
                 color: "orange.6",
               },
-              { name: State.New.toString(), label: t("statistics.chart.new"), color: "grape.6" },
+              {
+                name: State.New.toString(),
+                label: t("statistics.chart.new"),
+                color: "grape.6",
+              },
             ]}
             tickLine="y"
           />
