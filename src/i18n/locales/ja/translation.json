@@ -112,7 +112,9 @@
       "column-creation-date": "作成日",
       "column-note-type": "ノートタイプ"
     },
-    "title": "カードを管理"
+    "title": "カードを管理",
+    "showing-notes-in": "表示中のノート：",
+    "filter-notes-placeholder": "ノートをフィルタリング"
   },
   "new-card": {
     "add": "カードを追加",

@@ -92,7 +92,7 @@ function NoteExplorerView() {
       </AppHeaderContent>
       <Group align="end" gap="xs">
         <SelectDecksHeader
-          label="Showing Notes in"
+          label={t("manage-cards.showing-notes-in")}
           decks={decks}
           onSelect={(deckId) => navigate(`/notes/${deckId}`)}
         />
@@ -102,7 +102,7 @@ function NoteExplorerView() {
           <TextInput
             leftSection={<IconSearch size={16} />}
             defaultValue={filter}
-            placeholder="Filter Notes"
+            placeholder={t("manage-cards.filter-notes-placeholder")}
             w="100%"
             onChange={(event) => setFilter(event.currentTarget.value)}
           />
