@@ -51,12 +51,27 @@
     "lint": "biome check",
     "lint:type": "tsc --noEmit",
     "extract": "i18next --config i18next-parser.config.mjs 'src/**/*.{ts,tsx}'",
-    "format": "biome check --apply",
+    "format": "biome check --write",
     "tauri": "tauri",
     "add-domain": "echo https://skola.cards> dist/CNAME",
     "predeploy": "npm run add-domain && npm run build",
     "deploy": "gh-pages -d dist",
-    "build-and-deploy": "npm run predeploy && npm run deploy"
+    "build-and-deploy": "npm run predeploy && npm run deploy",
+    "prepare": "husky",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "biome check --write --no-errors-on-unmatched"
+    ],
+    "*.json": [
+      "biome check --write --no-errors-on-unmatched"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-staged"
+    }
   },
   "eslintConfig": {
     "extends": [
@@ -91,7 +106,9 @@
     "@types/uuid": "9.0.8",
     "@vitejs/plugin-react": "4.2.1",
     "gh-pages": "^6.3.0",
+    "husky": "^9.1.7",
     "i18next-parser": "9.0.2",
+    "lint-staged": "^16.1.2",
     "postcss": "8.4.47",
     "postcss-cli": "11.0.0",
     "postcss-preset-mantine": "1.13.0",
