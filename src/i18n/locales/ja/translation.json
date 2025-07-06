@@ -13,7 +13,7 @@
       "statistics": "統計"
     }
   },
-  deck": {
+  "deck": {
     "add-cards": "カードを追加！",
     "add-cards-tooltip": "このデッキにカードを追加",
     "create-deck-tooltip": "クリックして新しいデッキを作成",
