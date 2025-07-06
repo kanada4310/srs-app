@@ -69,7 +69,8 @@
   },
   "edit-card": {
     "edit-note": "ノートを編集",
-    "open-in-manage-cards": "カード管理で開く"
+    "open-in-manage-cards": "カード管理で開く",
+    "no-note-selected": "ノートが選択されていません"
   },
   "global": {
     "cancel": "キャンセル",
@@ -78,7 +79,8 @@
       "new": " (新規)",
       "planned": " (計画中)"
     },
-    "no-items-title": "何もありません！"
+    "no-items-title": "何もありません！",
+    "all": "すべて"
   },
   "hero-deck-section": {
     "all-cards-done-learn-anyway": "とにかく学習する",
@@ -87,6 +89,10 @@
     "error": "カードの読み込みに失敗しました。",
     "learn": "学習",
     "no-cards": "カードを作成することから始めましょう！"
+  },
+  "select-decks-header": {
+    "no-decks-found": "デッキが見つかりません",
+    "pick-one": "選択してください"
   },
   "home": {
     "create-deck": "デッキを作成",

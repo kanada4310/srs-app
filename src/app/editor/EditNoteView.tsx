@@ -16,9 +16,10 @@ export function EditNoteView({ note }: { note: Note<NoteType> | undefined }) {
 }
 
 export function NoNoteView() {
+  const { t } = useTranslation();
   return (
     <Text fz="sm" c="dimmed">
-      No note selected
+      {t("edit-card.no-note-selected")}
     </Text>
   );
 }

@@ -1,6 +1,7 @@
 import { Deck } from "@/logic/deck/deck";
 import { Select, Stack, Text } from "@mantine/core";
 import { IconCards } from "@tabler/icons-react";
+import { t } from "i18next";
 import { useParams } from "react-router-dom";
 
 interface SelectDecksHeaderProps {
@@ -23,11 +24,11 @@ export default function SelectDecksHeader({
         {label}
       </Text>
       <Select
-        placeholder="Pick One"
+        placeholder={t("select-decks-header.pick-one")}
         searchable
-        nothingFoundMessage="No Decks Found"
+        nothingFoundMessage={t("select-decks-header.no-decks-found")}
         leftSection={<IconCards size={16} />}
-        data={(disableAll ? [] : [{ value: "", label: "All" }]).concat(
+        data={(disableAll ? [] : [{ value: "", label: t("global.all") }]).concat(
           decks?.map((deck) => ({
             value: deck.id,
             label: deck.name,
