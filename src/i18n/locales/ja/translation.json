@@ -1,0 +1,243 @@
+{
+  "card": {
+    "delete-modal": {
+      "description": "このカードを削除しようとしています。この操作は元に戻せません。続行しますか？",
+      "title": "カードを削除"
+    },
+    "menu": {
+      "debug": "デバッグ",
+      "delete": "削除",
+      "edit": "編集",
+      "move": "移動",
+      "options": "オプション",
+      "statistics": "統計"
+    }
+  },
+  "deck": {
+    "add-cards": "カードを追加！",
+    "add-cards-tooltip": "このデッキにカードを追加",
+    "create-deck-tooltip": "クリックして新しいデッキを作成",
+    "error-failed-to-load": "このカードは読み込みに失敗しました",
+    "learning-cards-label": "学習中",
+    "learning-cards-label_one": "1枚学習中",
+    "learning-cards-label_other": "{{ count }}枚学習中",
+    "menu": {
+      "debug": "デバッグ",
+      "delete": "削除",
+      "import-cards": "カードをインポート",
+      "label": "メニュー",
+      "manage-cards": "カードを管理",
+      "move": "移動",
+      "options": "オプション",
+      "rename": "名前を変更"
+    },
+    "new-cards-label": "新規",
+    "new-cards-label_one": "1枚新規",
+    "new-cards-label_other": "{{ count }}枚新規",
+    "new-deck-button": "新しいデッキ",
+    "new-deck-modal": {
+      "description": "説明",
+      "description-placeholder": "任意",
+      "name": "名前",
+      "name-placeholder": "例：'スペイン語'、'解剖学'、'歴史'",
+      "new-deck": "新しいデッキを作成",
+      "new-subdeck": "{{superDeck}}に新しいサブデッキを作成",
+      "submit": "作成"
+    },
+    "no-decks-found": "デッキがありません。上のボタンをクリックして作成してください！",
+    "notebook": {
+      "title": "ノートブック"
+    },
+    "rename": {
+      "new-name": "新しい名前",
+      "rename-button": "名前を変更",
+      "title": "\"{{deckName}}\"の名前を変更"
+    },
+    "review-cards-label": "復習",
+    "review-cards-label_one": "1枚復習",
+    "review-cards-label_other": "{{ count }}枚復習",
+    "settings": "設定",
+    "subdeck": {
+      "add-subdeck-button": "追加",
+      "load-fail": "サブデッキの読み込みに失敗しました。",
+      "title": "サブデッキ"
+    }
+  },
+  "edit-card": {
+    "edit-note": "ノートを編集"
+  },
+  "global": {
+    "cancel": "キャンセル",
+    "feature-status": {
+      "in-development": " (開発中)",
+      "new": " (新規)",
+      "planned": " (計画中)"
+    },
+    "no-items-title": "何もありません！"
+  },
+  "hero-deck-section": {
+    "all-cards-done-learn-anyway": "とにかく学習する",
+    "all-cards-done-subtitle": "明日また戻ってくるか、とにかく学習することを選択してください。",
+    "all-cards-done-title": "おめでとうございます！今日のデッキは終了です！",
+    "error": "カードの読み込みに失敗しました。",
+    "learn": "学習",
+    "no-cards": "カードを作成することから始めましょう！"
+  },
+  "home": {
+    "create-deck": "デッキを作成",
+    "no-decks-found": "まだデッキを作成していません。",
+    "title": "ホーム",
+    "welcome": "ようこそ！",
+    "welcome-user": "おかえりなさい、{{name}}！"
+  },
+  "learning": {
+    "finished-accuracy-ratio": "正確性",
+    "finished-button-home": "ホームへ",
+    "finished-button-to-deck": "デッキに戻る",
+    "finished-congrats": "おめでとうございます！",
+    "finished-congrats-name": "おめでとうございます、{{name}}！",
+    "finished-duration": "時間",
+    "finished-info": "今日のこのデッキのカードはすべて終了しました。",
+    "finished-repetions-count": "繰り返し回数"
+  },
+  "manage-cards": {
+    "table": {
+      "no-cards-found": "カードが見つかりません"
+    },
+    "title": "カードを管理"
+  },
+  "new-card": {
+    "add": "カードを追加",
+    "add-to-deck": "デッキに追加中",
+    "card-type": "カードタイプ"
+  },
+  "note": {
+    "delete-modal": {
+      "description": "このノートを削除しようとしています。この操作は元に戻せません。",
+      "title": "ノートを削除"
+    },
+    "edit": {
+      "see-history-button": "履歴を見る",
+      "see-history-tooltip": "最後に作成されたカードの履歴を表示",
+      "submit-button": "カードを保存",
+      "submit-button-tooltip": "カードを保存",
+      "title": "ノートを編集",
+      "type-specific": {
+        "double-sided": {
+          "back": "裏",
+          "front": "表"
+        },
+        "normal": {
+          "back": "裏",
+          "front": "表"
+        }
+      }
+    },
+    "menu": {
+      "delete": "削除",
+      "edit": "編集",
+      "move": "移動"
+    },
+    "new": {
+      "adding-to-deck": "\"{{deckName}}\"に追加中",
+      "select-note-type": {
+        "label": "カードタイプ",
+        "tooltip": "作成したいカードのタイプを選択してください"
+      },
+      "submit-button": "カードを追加",
+      "submit-button-tooltip": "カードを追加",
+      "title": "新しいカード"
+    },
+    "type": {
+      "cloze": "穴埋め",
+      "image-occlusion": "画像マスキング",
+      "normal": "通常",
+      "undefined": "未定義"
+    },
+    "type-double-sided": "両面"
+  },
+  "notebook": {
+    "individual-show-answer-toggle-tooltip": "クリックして解答を表示",
+    "options": {
+      "exclude-subdecks": "サブデッキを除外",
+      "menu": "ノートブックメニュー",
+      "show-answer": "解答を表示"
+    }
+  },
+  "settings": {
+    "about": {
+      "description": "このプログラムは、ドイツの医学生によって作成されました。Swallowは開発の初期段階です。バグに遭遇する可能性があります。もしバグを見つけた場合は、gitリポジトリで報告していただけると幸いです。",
+      "title": "について"
+    },
+    "appearance": {
+      "color-scheme": "配色",
+      "color-scheme-auto": "システム",
+      "color-scheme-dark": "ダーク",
+      "color-scheme-description": "常にライトテーマまたはダークテーマを選択するか、システムの配色を使用します。",
+      "color-scheme-light": "ライト",
+      "title": "外観"
+    },
+    "database": {
+      "storage-used": "使用済み",
+      "title": "データベース"
+    },
+    "developer": {
+      "description": "これは開発者タブです。開発者向けの追加設定が含まれます。",
+      "title": "開発者"
+    },
+    "editing": {
+      "editor-options": "エディター",
+      "individual-options": "個別オプション",
+      "markdown-hint": "キーボードショートカットや基本的なMarkdown構文を使用してテキストをフォーマットすることもできます。",
+      "show-code-option": "コードオプションを表示",
+      "show-highlight-option": "ハイライトオプションを表示",
+      "show-link-option": "リンクのオプションを表示",
+      "show-list-option": "リストのオプションを表示",
+      "show-options-for-subscript-and-superscript": "下付き文字と上付き文字のオプションを表示",
+      "show-strikethrough-option": "取り消し線オプションを表示",
+      "title": "編集",
+      "use-bubble-menu": "インラインメニューを使用",
+      "use-toolbar": "ツールバーを使用",
+      "use-toolbar-description": "エディターの上に常にフォーマットオプション付きのツールバーを表示"
+    },
+    "editing-use-bubble-menu-description": "テキストが選択されている場合にのみフォーマットオプションを表示",
+    "general": {
+      "enable-developer-mode": "開発者モードを有効にする",
+      "enable-developer-mode-description": "これにより、デバッグやカスタムプラグイン、テーマ作成のための追加オプションが有効になります。",
+      "enable-zen-mode": "禅モード",
+      "enable-zen-mode-description": "禅モードは、学習セッション中に自動的に全画面モードを有効にします。",
+      "language": "言語",
+      "language-description": "ユーザーインターフェースの言語を設定します。",
+      "name": "名前",
+      "name-description": "この名前は、ユーザーエクスペリエンスをカスタマイズするために使用されます。",
+      "show-shortcut-hints": "ショートカットを表示",
+      "show-shortcut-hints-description": "メニューなどに利用可能なキーボードショートカットが表示されます。",
+      "title": "一般"
+    },
+    "learn": {
+      "enable-visual-feedback": "視覚的フィードバックを有効にする",
+      "enable-visual-feedback-description": "評価に応じてカードに解答した後、短い色のフラッシュを表示します。",
+      "maximumInterval": "最大間隔",
+      "maximumIntervalDescription": "カードの2回の繰り返し間の最大間隔（日数）",
+      "newToReviewRatio": "復習あたりの新規カード数",
+      "newToReviewRatioDescription": "これは、平均して復習あたりに表示される新規カードの数を決定します。0.5の値は、復習と新規カードが同量で順序付けられることを意味します。",
+      "requestRetention": "要求保持率",
+      "requestRetentionDescription": "長期的に記憶したい質問の割合を設定します。注：高い値はより多くの復習と短い間隔につながります。低い割合は一般的に学習量を減らします。要求保持率が低すぎると、カードを忘れやすくなり、学習の負担が増加する可能性があります。推奨値は0.70から0.95の間です。",
+      "title": "学習"
+    },
+    "title": "設定"
+  },
+  "sidebar": {
+    "decks-add": "デッキを追加",
+    "decks-title": "デッキ"
+  },
+  "spotlight": {
+    "no-results": "結果なし"
+  },
+  "statistics": {
+    "title": "統計"
+  },
+  "today": {
+    "title": "今日"
+  }
+}
