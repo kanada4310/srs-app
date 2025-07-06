@@ -2,8 +2,8 @@ import { Note, NoteType } from "@/logic/note/note";
 import { NoteSortFunction, NoteSorts } from "@/logic/note/sort";
 import { useMediaQuery } from "@mantine/hooks";
 import clsx from "clsx";
-import { DataTable, DataTableSortStatus } from "mantine-datatable";
 import { t } from "i18next";
+import { DataTable, DataTableSortStatus } from "mantine-datatable";
 import { useEffect, useState } from "react";
 import classes from "./NoteTable.module.css";
 
