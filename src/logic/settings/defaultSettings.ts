@@ -1,7 +1,7 @@
 import { SettingsValues, SupportedLanguages } from "./Settings";
 
 export const defaultSettings: SettingsValues = {
-  language: SupportedLanguages.English,
+  language: SupportedLanguages.Japanese,
   useVisualFeedback: true,
   developerMode: false,
   showShortcutHints: true,

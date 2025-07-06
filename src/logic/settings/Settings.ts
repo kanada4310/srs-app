@@ -7,6 +7,7 @@ export enum SupportedLanguages {
   English = "en",
   German = "de",
   Swedish = "sv",
+  Japanese = "ja",
 }
 
 export interface SettingsValues {
