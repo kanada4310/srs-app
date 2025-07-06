@@ -1,6 +1,7 @@
 import { NoteType } from "@/logic/note/note";
 import { AreaChart } from "@mantine/charts";
 import React, { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { Card } from "../../logic/card/card";
 
 interface CardHistoryProps {
@@ -8,6 +9,7 @@ interface CardHistoryProps {
 }
 
 export default function CardHistory({ card }: CardHistoryProps) {
+  const { t } = useTranslation();
   const data = useMemo(() => {
     if (card) {
       return card.history.map((h) => {

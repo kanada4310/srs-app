@@ -7,12 +7,14 @@ import { BarChart, DonutChart } from "@mantine/charts";
 import { Center, SegmentedControl, Stack, Title } from "@mantine/core";
 import { State } from "fsrs.js";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 import SelectDecksHeader from "../../components/SelectDecksHeader";
 import { db } from "../../logic/db";
 import { AppHeaderContent } from "../shell/Header/Header";
 
 function StatsView() {
+  const { t } = useTranslation();
   const [decks] = useDecks();
   const navigate = useNavigate();
 
