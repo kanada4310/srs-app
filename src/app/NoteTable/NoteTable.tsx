@@ -80,6 +80,7 @@ function NoteTable({
       borderRadius="md"
       striped="odd"
       height="100%"
+      noRecordsText={t("manage-cards.table.no-cards-found")}
       textSelectionDisabled={isTouch}
       selectionCheckboxProps={{ size: isMobile ? "sm" : "xs" }}
       selectedRecords={selectedNotes}
