@@ -48,7 +48,7 @@ export default function EditNoteModal({
       opened={opened}
       onClose={setClose}
     >
-      {CardEditorComponent && (
+      {deck && CardEditorComponent && (
         <CardEditorComponent
           note={note}
           deck={deck}

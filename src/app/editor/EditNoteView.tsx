@@ -46,7 +46,7 @@ function NoteView({ note }: { note: Note<NoteType> }) {
         </Group>
         <NoteMenu note={note} withEdit={false} />
       </Group>
-      {NoteEditorComponent && (
+      {deck && NoteEditorComponent && (
         <NoteEditorComponent
           note={note}
           deck={deck}
