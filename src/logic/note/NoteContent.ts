@@ -7,4 +7,5 @@ export type NoteContent<T extends NoteType> = {
   type: T;
 } & (T extends NoteType.Basic ? NormalNoteContent : {}) &
   (T extends NoteType.Cloze ? ClozeNoteContent : {}) &
+  (T extends NoteType.ImageOcclusion ? ImageOcclusionNoteContent : {}) &
   (T extends NoteType.DoubleSided ? DoubleSidedNoteContent : {});

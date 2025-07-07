@@ -153,6 +153,7 @@
       "submit-button": "カードを保存",
       "submit-button-tooltip": "カードを保存",
       "title": "ノートを編集",
+      "delete-image": "画像を削除",
       "type-specific": {
         "double-sided": {
           "back": "裏",
