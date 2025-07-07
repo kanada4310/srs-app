@@ -1,6 +1,7 @@
 import { useSettings } from "@/logic/settings/hooks/useSettings";
 import { Link, RichTextEditor } from "@mantine/tiptap";
 import { Color } from "@tiptap/extension-color";
+import Image from "@tiptap/extension-image";
 import Highlight from "@tiptap/extension-highlight";
 import SubScript from "@tiptap/extension-subscript";
 import Superscript from "@tiptap/extension-superscript";
@@ -68,6 +69,7 @@ export function useNoteEditor(props: {
         TextAlign.configure({ types: ["heading", "paragraph"] }),
         Color,
         TextStyle,
+        Image,
         ImageDrop,
         ...(props.extensions ?? []),
       ],
