@@ -4,8 +4,7 @@ import {
   successfullyAdded,
   successfullySaved,
 } from "@/components/Notification/Notification";
-import { EditMode } from "@/logic/NoteTypeAdapter";
-import { Deck } from "@/logic/deck/deck";
+import { NoteEditorProps } from "@/logic/NoteTypeAdapter";
 import { NoteType } from "@/logic/note/note";
 import { Note } from "@/logic/note/note";
 import { BasicNoteTypeAdapter } from "@/logic/type-implementations/normal/BasicNote";
@@ -16,23 +15,15 @@ import { useCallback, useEffect } from "react";
 import classes from "./NormalCardEditor.module.css";
 import NoteEditor, { useNoteEditor } from "./NoteEditor";
 
-interface NormalCardEditorProps {
-  note: Note<NoteType.Basic> | null;
-  deck: Deck;
-  mode: EditMode;
-  requestedFinish: boolean;
-  setRequestedFinish: (finish: boolean) => void;
-  focusSelectNoteType?: () => void;
-}
-
 function NormalCardEditor({
-  note,
+  note: _note,
   deck,
   mode,
   requestedFinish,
   setRequestedFinish,
   focusSelectNoteType,
-}: NormalCardEditorProps) {
+}: NoteEditorProps) {
+  const note = _note as Note<NoteType.Basic> | null;
   const noteContent = note?.content ?? {
     type: NoteType.Basic,
     front: "",

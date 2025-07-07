@@ -1,1 +1,1 @@
-fix: Ensure deck is defined before rendering NoteEditor components
+fix: Resolve type errors and rendering issues in NoteEditor components

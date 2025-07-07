@@ -5,8 +5,7 @@ import {
   successfullyAdded,
   successfullySaved,
 } from "@/components/Notification/Notification";
-import { EditMode } from "@/logic/NoteTypeAdapter";
-import { Deck } from "@/logic/deck/deck";
+import { NoteEditorProps } from "@/logic/NoteTypeAdapter";
 import { NoteType } from "@/logic/note/note";
 import { Note } from "@/logic/note/note";
 import { DoubleSidedNoteTypeAdapter } from "@/logic/type-implementations/double-sided/DoubleSidedNote";
@@ -17,23 +16,15 @@ import { useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import classes from "./DoubleSidedCardEditor.module.css";
 
-interface DoubleSidedCardEditorProps {
-  note: Note<NoteType.DoubleSided> | null;
-  deck: Deck;
-  mode: EditMode;
-  requestedFinish: boolean;
-  setRequestedFinish: (finish: boolean) => void;
-  focusSelectNoteType?: () => void;
-}
-
 function DoubleSidedCardEditor({
-  note,
+  note: _note,
   deck,
   mode,
   requestedFinish,
   setRequestedFinish,
   focusSelectNoteType,
-}: DoubleSidedCardEditorProps) {
+}: NoteEditorProps) {
+  const note = _note as Note<NoteType.DoubleSided> | null;
   const [t] = useTranslation();
 
   useHotkeys([["mod+Enter", () => setRequestedFinish(true)]]);

@@ -1,5 +1,4 @@
-import { EditMode } from "@/logic/NoteTypeAdapter";
-import { Deck } from "@/logic/deck/deck";
+import { NoteEditorProps } from "@/logic/NoteTypeAdapter";
 import { NoteType } from "@/logic/note/note";
 import { useHotkeys } from "@mantine/hooks";
 import { RichTextEditor } from "@mantine/tiptap";
@@ -18,23 +17,15 @@ import { ClozeNoteTypeAdapter } from "@/logic/type-implementations/cloze/ClozeNo
 import { Editor } from "@tiptap/react";
 import { useCallback, useEffect, useMemo } from "react";
 
-interface ClozeCardEditorProps {
-  note: Note<NoteType.Cloze> | null;
-  deck: Deck;
-  mode: EditMode;
-  requestedFinish: boolean;
-  setRequestedFinish: (finish: boolean) => void;
-  focusSelectNoteType?: () => void;
-}
-
 export default function ClozeCardEditor({
-  note,
+  note: _note,
   deck,
   mode,
   requestedFinish,
   setRequestedFinish,
   focusSelectNoteType,
-}: ClozeCardEditorProps) {
+}: NoteEditorProps) {
+  const note = _note as Note<NoteType.Cloze> | null;
   useHotkeys([["mod+Enter", () => setRequestedFinish(true)]]);
 
   const noteContent = note?.content ?? { type: NoteType.Cloze, text: "" };

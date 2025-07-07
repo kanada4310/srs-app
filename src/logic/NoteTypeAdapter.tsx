@@ -45,7 +45,7 @@ export interface NoteTypeAdapter<T extends NoteType> {
 
   getSortFieldFromNoteContent(content: NoteContent<T>): string;
 
-  editor(props: NoteEditorProps): JSX.Element;
+  editor: React.ComponentType<NoteEditorProps>;
 }
 
 export type EditMode = "edit" | "new";

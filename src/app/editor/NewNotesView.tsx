@@ -51,22 +51,9 @@ function NewNotesView() {
     ],
   ]);
 
-  const NoteEditor = useMemo(() => {
-    return deck
-      ? getAdapterOfType(noteType).editor({
-          note: null,
-          deck: deck,
-          mode: "new",
-          requestedFinish,
-          setRequestedFinish,
-          setNoteType,
-          focusSelectNoteType: () => {
-            noteTypeSelectRef.current?.focus();
-            noteTypeSelectRef.current?.click();
-          },
-        })
-      : null;
-  }, [deck, noteType, setNoteType, requestedFinish, setRequestedFinish]);
+  const NoteEditorComponent = useMemo(() => {
+    return deck ? getAdapterOfType(noteType).editor : null;
+  }, [deck, noteType]);
 
   const closeView = useCallback(() => {
     navigate(deck ? "/deck/" + deck?.id : "/home");
@@ -152,7 +139,20 @@ function NewNotesView() {
               </Tooltip>
             </Group>
             <Paper p="md" shadow="xs" withBorder>
-              {NoteEditor}
+              {NoteEditorComponent && (
+                <NoteEditorComponent
+                  note={null}
+                  deck={deck}
+                  mode="new"
+                  requestedFinish={requestedFinish}
+                  setRequestedFinish={setRequestedFinish}
+                  setNoteType={setNoteType}
+                  focusSelectNoteType={() => {
+                    noteTypeSelectRef.current?.focus();
+                    noteTypeSelectRef.current?.click();
+                  }}
+                />
+              )}
             </Paper>
           </Stack>
         </div>
