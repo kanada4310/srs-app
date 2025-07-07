@@ -92,7 +92,7 @@ export const ImageOcclusionTypeAdapter: NoteTypeAdapter<NoteType.ImageOcclusion>
       };
 
       if (!note) {
-        return null;
+        return <></>;
       }
 
       return (

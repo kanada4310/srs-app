@@ -1,1 +1,1 @@
-fix(lint): Adhere to strict hook rules in ImageOcclusionNote editor
+fix(typecheck): Return empty fragment instead of null in ImageOcclusionNote editor
