@@ -47,10 +47,7 @@ export const ImageOcclusionTypeAdapter: NoteTypeAdapter<NoteType.ImageOcclusion>
       requestedFinish: _requestedFinish,
       setRequestedFinish: _setRequestedFinish,
     }: NoteEditorProps) {
-      if (!_note) {
-        return null;
-      }
-      const note = _note as Note<NoteType.ImageOcclusion>;
+      const note = _note as Note<NoteType.ImageOcclusion> | undefined;
       const [_imageFile, setImageFile] = useState<File | null>(null);
       const [imageUrl, setImageUrl] = useState<string | null>(null);
       const [currentImageId, setCurrentImageId] = useState<string | undefined>(
@@ -93,6 +90,10 @@ export const ImageOcclusionTypeAdapter: NoteTypeAdapter<NoteType.ImageOcclusion>
         }
         setImageFile(file);
       };
+
+      if (!note) {
+        return null;
+      }
 
       return (
         <Stack>
