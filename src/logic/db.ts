@@ -7,6 +7,7 @@ import { NoteType } from "./note/note";
 import { Note } from "./note/note";
 import { Settings, SettingsValues } from "./settings/Settings";
 import { DeckStatistics } from "./statistics";
+import { Image } from "./image/image";
 
 export class Database extends Dexie {
   decks!: Table<Deck>;
@@ -14,6 +15,7 @@ export class Database extends Dexie {
   notes!: Table<Note<NoteType>>;
   statistics!: Table<DeckStatistics>;
   settings!: Table<Settings<keyof SettingsValues>>;
+  images!: Table<Image>;
 
   constructor() {
     super("swallow_db", { addons: [dexieCloud], cache: "disabled" });
@@ -23,6 +25,7 @@ export class Database extends Dexie {
       notes: "id, deck, sortField",
       statistics: "[deck+day], day",
       settings: "key",
+      images: "id",
     });
     this.open();
   }
