@@ -1,4 +1,5 @@
 import { useSettings } from "@/logic/settings/hooks/useSettings";
+import { saveImage, getImage } from "@/logic/image/saveImage";
 import { Link, RichTextEditor } from "@mantine/tiptap";
 import { Color } from "@tiptap/extension-color";
 import Highlight from "@tiptap/extension-highlight";
@@ -83,14 +84,21 @@ export function useNoteEditor(props: {
 function NoteEditor({ editor, controls, className }: NoteEditorProps) {
   const [settings, areSettingsReady] = useSettings();
 
-  const addImage = (data: DataTransfer) => {
+  const addImage = async (data: DataTransfer) => {
     const { files } = data;
     if (editor && files && files.length > 0) {
       for (const file of Array.from(files)) {
         const [mime] = file.type.split("/");
         if (mime === "image") {
-          const url = URL.createObjectURL(file);
-          editor.commands.insertImage({ src: url });
+          const imageId = await saveImage(file, file.name, file.type);
+          const image = await getImage(imageId);
+          if (image) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+              editor.commands.insertImage({ src: reader.result as string });
+            };
+            reader.readAsDataURL(image.data);
+          }
         }
       }
     }
