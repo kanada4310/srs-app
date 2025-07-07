@@ -97,25 +97,7 @@ export const DoubleSidedNoteTypeAdapter: NoteTypeAdapter<NoteType.DoubleSided> =
       return HTMLtoPreviewString(content.field1);
     },
 
-    editor({
-      note,
-      deck,
-      mode,
-      requestedFinish,
-      setRequestedFinish,
-      focusSelectNoteType,
-    }: NoteEditorProps) {
-      return (
-        <DoubleSidedCardEditor
-          note={note as Note<NoteType.DoubleSided> | null}
-          deck={deck}
-          mode={mode}
-          requestedFinish={requestedFinish}
-          setRequestedFinish={setRequestedFinish}
-          focusSelectNoteType={focusSelectNoteType}
-        />
-      );
-    },
+    editor: DoubleSidedCardEditor,
 
     //DEPRECATED
     async deleteCard(card: Card<NoteType.DoubleSided>) {

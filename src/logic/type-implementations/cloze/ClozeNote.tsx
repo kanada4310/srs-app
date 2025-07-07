@@ -121,25 +121,7 @@ export const ClozeNoteTypeAdapter: NoteTypeAdapter<NoteType.Cloze> = {
     );
   },
 
-  editor({
-    note,
-    deck,
-    mode,
-    requestedFinish,
-    setRequestedFinish,
-    focusSelectNoteType,
-  }: NoteEditorProps) {
-    return (
-      <ClozeCardEditor
-        note={note as Note<NoteType.Cloze> | null}
-        deck={deck}
-        mode={mode}
-        requestedFinish={requestedFinish}
-        setRequestedFinish={setRequestedFinish}
-        focusSelectNoteType={focusSelectNoteType}
-      />
-    );
-  },
+  editor: ClozeCardEditor,
 
   //DEPRECATED
   async deleteCard(card: Card<NoteType.Cloze>) {

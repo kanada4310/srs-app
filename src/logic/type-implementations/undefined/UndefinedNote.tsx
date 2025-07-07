@@ -1,6 +1,10 @@
 import { NoteTypeAdapter } from "@/logic/NoteTypeAdapter";
 import { NoteType } from "@/logic/note/note";
 
+function UndefinedNoteEditor() {
+  return <span>Undefined Card Editor</span>;
+}
+
 export const UndefinedNoteTypeAdapter: NoteTypeAdapter<NoteType.Undefined> = {
   createNote() {
     console.warn("tried to create note of type undefined. Not possible.");
@@ -28,9 +32,7 @@ export const UndefinedNoteTypeAdapter: NoteTypeAdapter<NoteType.Undefined> = {
     return "[Undefined Card] Sort Field";
   },
 
-  editor() {
-    return <span>Undefined Card Editor</span>;
-  },
+  editor: UndefinedNoteEditor,
 
   deleteCard() {
     console.warn("tried to delete card of type undefined. Not possible.");

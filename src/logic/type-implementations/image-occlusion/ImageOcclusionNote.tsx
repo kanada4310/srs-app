@@ -8,6 +8,82 @@ import { IconTrash } from "@tabler/icons-react";
 import { t } from "i18next";
 import { useEffect, useState } from "react";
 
+function ImageOcclusionNoteEditor({
+  note: _note,
+  deck: _deck,
+  mode: _mode,
+  requestedFinish: _requestedFinish,
+  setRequestedFinish: _setRequestedFinish,
+}: NoteEditorProps) {
+  const note = _note as Note<NoteType.ImageOcclusion> | undefined;
+  const [_imageFile, setImageFile] = useState<File | null>(null);
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
+  const [currentImageId, setCurrentImageId] = useState<string | undefined>(
+    note?.content.image
+  );
+
+  useEffect(() => {
+    if (note?.content.image) {
+      getImage(note.content.image).then((img) => {
+        if (img) {
+          setImageUrl(URL.createObjectURL(img.data));
+        }
+      });
+    }
+  }, [note?.content.image]);
+
+  const handleImageSelect = async (file: File | null) => {
+    if (file) {
+      const newImageId = await saveImage(file, file.name, file.type);
+      setCurrentImageId(newImageId);
+      setImageUrl(URL.createObjectURL(file));
+      // Update note content with new imageId
+      if (note) {
+        db.notes.update(note.id, {
+          content: { ...note.content, image: newImageId },
+        });
+      }
+    } else {
+      // Delete image from db if it exists
+      if (currentImageId) {
+        await deleteImage(currentImageId);
+        if (note) {
+          db.notes.update(note.id, {
+            content: { ...note.content, image: undefined },
+          });
+        }
+      }
+      setCurrentImageId(undefined);
+      setImageUrl(null);
+    }
+    setImageFile(file);
+  };
+
+  if (!note) {
+    return <></>;
+  }
+
+  return (
+    <Stack>
+      <ImageUpload onImageSelect={handleImageSelect} previewUrl={imageUrl} />
+      {imageUrl && (
+        <Group justify="center">
+          <Button
+            variant="outline"
+            color="red"
+            leftSection={<IconTrash size={16} />}
+            onClick={() => handleImageSelect(null)}
+          >
+            {t("note.edit.delete-image")}
+          </Button>
+        </Group>
+      )}
+      {/* ここにマスキング機能のUIを追加 */}
+      <span>Image Occlusion Card Editor</span>
+    </Stack>
+  );
+}
+
 export const ImageOcclusionTypeAdapter: NoteTypeAdapter<NoteType.ImageOcclusion> =
   {
     createNote() {
@@ -40,84 +116,7 @@ export const ImageOcclusionTypeAdapter: NoteTypeAdapter<NoteType.ImageOcclusion>
       return "[Image Occlusion Card] Sort Field";
     },
 
-    editor({
-      note: _note,
-      deck: _deck,
-      mode: _mode,
-      requestedFinish: _requestedFinish,
-      setRequestedFinish: _setRequestedFinish,
-    }: NoteEditorProps) {
-      const note = _note as Note<NoteType.ImageOcclusion> | undefined;
-      const [_imageFile, setImageFile] = useState<File | null>(null);
-      const [imageUrl, setImageUrl] = useState<string | null>(null);
-      const [currentImageId, setCurrentImageId] = useState<string | undefined>(
-        note?.content.image
-      );
-
-      useEffect(() => {
-        if (note?.content.image) {
-          getImage(note.content.image).then((img) => {
-            if (img) {
-              setImageUrl(URL.createObjectURL(img.data));
-            }
-          });
-        }
-      }, [note?.content.image]);
-
-      const handleImageSelect = async (file: File | null) => {
-        if (file) {
-          const newImageId = await saveImage(file, file.name, file.type);
-          setCurrentImageId(newImageId);
-          setImageUrl(URL.createObjectURL(file));
-          // Update note content with new imageId
-          if (note) {
-            db.notes.update(note.id, {
-              content: { ...note.content, image: newImageId },
-            });
-          }
-        } else {
-          // Delete image from db if it exists
-          if (currentImageId) {
-            await deleteImage(currentImageId);
-            if (note) {
-              db.notes.update(note.id, {
-                content: { ...note.content, image: undefined },
-              });
-            }
-          }
-          setCurrentImageId(undefined);
-          setImageUrl(null);
-        }
-        setImageFile(file);
-      };
-
-      if (!note) {
-        return <></>;
-      }
-
-      return (
-        <Stack>
-          <ImageUpload
-            onImageSelect={handleImageSelect}
-            previewUrl={imageUrl}
-          />
-          {imageUrl && (
-            <Group justify="center">
-              <Button
-                variant="outline"
-                color="red"
-                leftSection={<IconTrash size={16} />}
-                onClick={() => handleImageSelect(null)}
-              >
-                {t("note.edit.delete-image")}
-              </Button>
-            </Group>
-          )}
-          {/* ここにマスキング機能のUIを追加 */}
-          <span>Image Occlusion Card Editor</span>
-        </Stack>
-      );
-    },
+    editor: ImageOcclusionNoteEditor,
 
     deleteCard() {
       console.warn(

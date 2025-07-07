@@ -1,1 +1,1 @@
-fix(typecheck): Return empty fragment instead of null in ImageOcclusionNote editor
+refactor: Convert NoteTypeAdapter editors to React components

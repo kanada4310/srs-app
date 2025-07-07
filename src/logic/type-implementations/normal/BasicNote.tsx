@@ -107,25 +107,7 @@ export const BasicNoteTypeAdapter: NoteTypeAdapter<NoteType.Basic> = {
     return HTMLtoPreviewString(content?.front ?? "[error]");
   },
 
-  editor({
-    note,
-    deck,
-    mode,
-    requestedFinish,
-    setRequestedFinish,
-    focusSelectNoteType,
-  }: NoteEditorProps) {
-    return (
-      <NormalCardEditor
-        note={note as Note<NoteType.Basic> | null}
-        deck={deck}
-        mode={mode}
-        requestedFinish={requestedFinish}
-        setRequestedFinish={setRequestedFinish}
-        focusSelectNoteType={focusSelectNoteType}
-      />
-    );
-  },
+  editor: NormalCardEditor,
 
   async deleteCard(card: Card<NoteType.Basic>) {
     deleteCard(card);
