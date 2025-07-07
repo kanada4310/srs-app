@@ -1,1 +1,1 @@
-refactor: Convert NoteTypeAdapter editors to React components
+fix: Resolve lint and typecheck errors after editor refactor

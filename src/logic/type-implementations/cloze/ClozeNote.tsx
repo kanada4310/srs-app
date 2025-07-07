@@ -1,5 +1,5 @@
 import ClozeCardEditor from "@/app/editor/NoteEditor/ClozeCardEditor";
-import { NoteEditorProps, NoteTypeAdapter } from "@/logic/NoteTypeAdapter";
+import { NoteTypeAdapter } from "@/logic/NoteTypeAdapter";
 import { Card, HTMLtoPreviewString } from "@/logic/card/card";
 import { createCardSkeleton } from "@/logic/card/createCardSkeleton";
 import { deleteCard } from "@/logic/card/deleteCard";

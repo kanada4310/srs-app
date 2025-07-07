@@ -1,5 +1,5 @@
 import DoubleSidedCardEditor from "@/app/editor/NoteEditor/DoubleSidedCardEditor";
-import { NoteEditorProps, NoteTypeAdapter } from "@/logic/NoteTypeAdapter";
+import { NoteTypeAdapter } from "@/logic/NoteTypeAdapter";
 import { Card, HTMLtoPreviewString } from "@/logic/card/card";
 import { deleteCard } from "@/logic/card/deleteCard";
 import { db } from "@/logic/db";
