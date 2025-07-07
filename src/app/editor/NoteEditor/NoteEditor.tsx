@@ -18,7 +18,7 @@ import {
   useEditor,
 } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 
 import { ImageDrop } from "./ImageDrop";
 import classes from "./NoteEditor.module.css";
