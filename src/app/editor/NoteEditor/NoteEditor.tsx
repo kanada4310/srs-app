@@ -95,7 +95,7 @@ function NoteEditor({ editor, controls, className }: NoteEditorProps) {
           if (image) {
             const reader = new FileReader();
             reader.onloadend = () => {
-              console.log('Base64 Image Data:', reader.result); // 追加
+              console.log("Base64 Image Data:", reader.result); // 追加
               editor.commands.insertImage({ src: reader.result as string });
             };
             reader.readAsDataURL(image.data);
