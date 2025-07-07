@@ -24,17 +24,9 @@ export default function EditNoteModal({
 
   const isMobile = useMediaQuery("(max-width: 50em)");
 
-  const CardEditor = useMemo(() => {
-    return deck
-      ? getAdapter(note).editor({
-          note,
-          deck,
-          mode: "edit",
-          requestedFinish,
-          setRequestedFinish,
-        })
-      : null;
-  }, [note, deck, requestedFinish, setRequestedFinish]);
+  const CardEditorComponent = useMemo(() => {
+    return deck ? getAdapter(note).editor : null;
+  }, [note, deck]);
 
   return (
     <Modal
@@ -56,7 +48,15 @@ export default function EditNoteModal({
       opened={opened}
       onClose={setClose}
     >
-      {CardEditor}
+      {CardEditorComponent && (
+        <CardEditorComponent
+          note={note}
+          deck={deck}
+          mode="edit"
+          requestedFinish={requestedFinish}
+          setRequestedFinish={setRequestedFinish}
+        />
+      )}
       <Group justify="end" pt="md">
         <NoteSubmitButton
           finish={() => {

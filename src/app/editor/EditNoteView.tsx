@@ -29,17 +29,9 @@ function NoteView({ note }: { note: Note<NoteType> }) {
   const [deck] = useDeckOf(note);
   const [requestedFinish, setRequestedFinish] = useState(false);
 
-  const NoteEditor = useMemo(() => {
-    return deck
-      ? getAdapter(note).editor({
-          note,
-          deck,
-          mode: "edit",
-          requestedFinish,
-          setRequestedFinish,
-        })
-      : null;
-  }, [note, deck, requestedFinish, setRequestedFinish]);
+  const NoteEditorComponent = useMemo(() => {
+    return deck ? getAdapter(note).editor : null;
+  }, [note, deck]);
 
   return (
     <Stack style={{ height: "100%", overflowY: "scroll" }} gap="xl">
@@ -54,7 +46,15 @@ function NoteView({ note }: { note: Note<NoteType> }) {
         </Group>
         <NoteMenu note={note} withEdit={false} />
       </Group>
-      {NoteEditor}
+      {NoteEditorComponent && (
+        <NoteEditorComponent
+          note={note}
+          deck={deck}
+          mode="edit"
+          requestedFinish={requestedFinish}
+          setRequestedFinish={setRequestedFinish}
+        />
+      )}
       <Group justify="end">
         <NoteSubmitButton finish={() => setRequestedFinish(true)} mode="edit" />
       </Group>
