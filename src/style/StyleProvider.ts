@@ -59,7 +59,7 @@ export const presetTheme = createTheme({
       "#5a77ab",
       "#485e88",
       "#364565",
-      "#232952"
+      "#232952",
     ],
     forest: [
       "#E1EFE6",
