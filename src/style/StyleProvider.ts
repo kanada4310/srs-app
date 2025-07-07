@@ -49,6 +49,18 @@ export const presetTheme = createTheme({
   headings: headingStyle,
   fontFamily: "Open Sans, sans-serif",
   colors: {
+    primary: [
+      "#e0e1e8",
+      "#b0b2c2",
+      "#80839c",
+      "#505476",
+      "#232952",
+      "#1c2141",
+      "#151930",
+      "#0e1020",
+      "#070810",
+      "#000000"
+    ],
     forest: [
       "#E1EFE6",
       "#BADBC9",
@@ -98,11 +110,11 @@ export const presetTheme = createTheme({
       "#17345F",
     ],
   },
-  primaryColor: "forest",
+  primaryColor: "primary",
   defaultGradient: {
     deg: 45,
-    from: "forest.5",
-    to: "forest.7",
+    from: "primary.5",
+    to: "primary.7",
   },
   components: {
     AppShell: AppShell.extend({
