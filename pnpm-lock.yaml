@@ -181,8 +181,8 @@ importers:
         specifier: 8.4.47
         version: 8.4.47
       postcss-cli:
-        specifier: 11.0.0
-        version: 11.0.0(postcss@8.4.47)
+        specifier: 11.0.1
+        version: 11.0.1(postcss@8.4.47)
       postcss-preset-mantine:
         specifier: 1.13.0
         version: 1.13.0(postcss@8.4.47)
@@ -1552,10 +1552,6 @@ packages:
   '@selderee/plugin-htmlparser2@0.11.0':
     resolution: {integrity: sha512-P33hHGdldxGabLFjPPpaTxVolMrzrcegejx+0GxjrIb9Zv48D8yAIA/QTDR2dFl7Uz7urX8aX6+5bCZslr+gWQ==}
 
-  '@sindresorhus/merge-streams@2.3.0':
-    resolution: {integrity: sha512-LtoMMhxAlorcGhmFYI+LhPgbPZCkgP6ra1YL604EeF6U98pLlQ3iWIGMdWSC+vWmPBWBNgmDBAhnAobLROJmwg==}
-    engines: {node: '>=18'}
-
   '@surma/rollup-plugin-off-main-thread@2.2.3':
     resolution: {integrity: sha512-lR8q/9W7hZpMWweNiAKU7NQerBnzQQLvi8qnTDU/fxItPhtZVMbPV3lbCwjhIlNBe9Bbr5V+KHshvWmVSG9cxQ==}
 
@@ -2472,9 +2468,9 @@ packages:
     resolution: {integrity: sha512-8QmQKqEASLd5nx0U1B1okLElbUuuttJ/AnYmRXbbbGDWh6uS208EjD4Xqq/I9wK7u0v6O08XhTWnt5XtEbR6Dg==}
     engines: {node: '>= 0.4'}
 
-  dependency-graph@0.11.0:
-    resolution: {integrity: sha512-JeMq7fEshyepOWDfcfHK06N3MhyPhz++vtqWhMT5O9A3K42rdsEDpfdVqjaqaAhsw6a+ZqeDvQVtD0hFHQWrzg==}
-    engines: {node: '>= 0.6.0'}
+  dependency-graph@1.0.0:
+    resolution: {integrity: sha512-cW3gggJ28HZ/LExwxP2B++aiKxhJXMSIt9K48FOXQkm+vuG5gyatXnLsONRJdzO/7VfjDIiaOOa/bs4l464Lwg==}
+    engines: {node: '>=4'}
 
   detect-libc@2.0.4:
     resolution: {integrity: sha512-3UDv+G9CsCKO1WKMGw9fwq/SWJYbI0c5Y7LU1AXYoDdbhE2AHQ6N6Nb34sG8Fj7T5APy8qXDCKuuIHd1BR0tVA==}
@@ -2906,10 +2902,6 @@ packages:
     resolution: {integrity: sha512-sTSfBjoXBp89JvIKIefqw7U2CCebsc74kiY6awiGogKtoSGbgjYE/G/+l9sF3MWFPNc9IcoOC4ODfKHfxFmp0g==}
     engines: {node: '>= 0.4'}
 
-  get-stdin@9.0.0:
-    resolution: {integrity: sha512-dVKBjfWisLAicarI2Sf+JuBE/DghV4UzNAVe9yhEJuzeREd3JhOTE9cUaJTeSa77fsbQUK3pcOpJfM59+VKZaA==}
-    engines: {node: '>=12'}
-
   get-stream@5.2.0:
     resolution: {integrity: sha512-nBF+F1rAZVCu/p7rjzgA+Yb4lfYXrpl7a6VmJrU8wF9I1CKvP/QwPNZHnOlwbTkY6dvtFIzFMSyQXbLoTQPRpA==}
     engines: {node: '>=8'}
@@ -2954,10 +2946,6 @@ packages:
   globby@11.1.0:
     resolution: {integrity: sha512-jhIXaOzy1sb8IyocaruWSn1TjmnBVs8Ayhcy83rmxNJ8q2uWKCAj3CnJY+KpGSXCueAPc0i05kVvVKtP1t9S3g==}
     engines: {node: '>=10'}
-
-  globby@14.1.0:
-    resolution: {integrity: sha512-0Ia46fDOaT7k4og1PDW4YbodWWr3scS2vAr2lTbsplOt2WkKp0vQbkI9wKis/T5LV/dqPjO3bpS/z6GTJB82LA==}
-    engines: {node: '>=18'}
 
   globrex@0.1.2:
     resolution: {integrity: sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==}
@@ -3078,10 +3066,6 @@ packages:
 
   ignore@5.3.2:
     resolution: {integrity: sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==}
-    engines: {node: '>= 4'}
-
-  ignore@7.0.5:
-    resolution: {integrity: sha512-Hs59xBNfUIunMFgWAbGX5cq6893IbWg4KnrjbYwX3tx0ztorVgTDA6B2sxf8ejHJ4wz8BqGUMYlnzNBer5NvGg==}
     engines: {node: '>= 4'}
 
   image-size@2.0.2:
@@ -3734,10 +3718,6 @@ packages:
     resolution: {integrity: sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==}
     engines: {node: '>=8'}
 
-  path-type@6.0.0:
-    resolution: {integrity: sha512-Vj7sf++t5pBD637NSfkxpHSMfWaeig5+DKWLhcqIYx6mWQz5hdJTGDVMQiJcw1ZYkhs7AazKDGpRVji1LJCZUQ==}
-    engines: {node: '>=18'}
-
   peberminta@0.9.0:
     resolution: {integrity: sha512-XIxfHpEuSJbITd1H3EeQwpcZbTLHc+VVr8ANI9t5sit565tsI4/xK3KWTUFE2e6QiangUkh3B0jihzmGnNrRsQ==}
 
@@ -3772,8 +3752,8 @@ packages:
     resolution: {integrity: sha512-/+5VFTchJDoVj3bhoqi6UeymcD00DAwb1nJwamzPvHEszJ4FpF6SNNbUbOS8yI56qHzdV8eK0qEfOSiodkTdxg==}
     engines: {node: '>= 0.4'}
 
-  postcss-cli@11.0.0:
-    resolution: {integrity: sha512-xMITAI7M0u1yolVcXJ9XTZiO9aO49mcoKQy6pCDFdMh9kGqhzLVpWxeD/32M/QBmkhcGypZFFOLNLmIW4Pg4RA==}
+  postcss-cli@11.0.1:
+    resolution: {integrity: sha512-0UnkNPSayHKRe/tc2YGW6XnSqqOA9eqpiRMgRlV1S6HdGi16vwJBx7lviARzbV1HpQHqLLRH3o8vTcB0cLc+5g==}
     engines: {node: '>=18'}
     hasBin: true
     peerDependencies:
@@ -4660,10 +4640,6 @@ packages:
 
   unicorn-magic@0.1.0:
     resolution: {integrity: sha512-lRfVq8fE8gz6QMBuDM6a+LO3IAzTi05H6gCVaUpir2E1Rwpo4ZUog45KpNXKC/Mn3Yb9UDuHumeFTo9iV/D9FQ==}
-    engines: {node: '>=18'}
-
-  unicorn-magic@0.3.0:
-    resolution: {integrity: sha512-+QBBXBCvifc56fsbuxZQ6Sic3wqqc3WWaqxs58gvJrcOuN83HGTCwz3oS5phzU9LthRNE9VrJCFCLUgHeeFnfA==}
     engines: {node: '>=18'}
 
   unique-string@2.0.0:
@@ -6389,8 +6365,6 @@ snapshots:
       domhandler: 5.0.3
       selderee: 0.11.0
 
-  '@sindresorhus/merge-streams@2.3.0': {}
-
   '@surma/rollup-plugin-off-main-thread@2.2.3':
     dependencies:
       ejs: 3.1.10
@@ -7366,7 +7340,7 @@ snapshots:
       has-property-descriptors: 1.0.2
       object-keys: 1.1.1
 
-  dependency-graph@0.11.0: {}
+  dependency-graph@1.0.0: {}
 
   detect-libc@2.0.4: {}
 
@@ -7928,8 +7902,6 @@ snapshots:
       dunder-proto: 1.0.1
       es-object-atoms: 1.1.1
 
-  get-stdin@9.0.0: {}
-
   get-stream@5.2.0:
     dependencies:
       pump: 3.0.3
@@ -8002,15 +7974,6 @@ snapshots:
       ignore: 5.3.2
       merge2: 1.4.1
       slash: 3.0.0
-
-  globby@14.1.0:
-    dependencies:
-      '@sindresorhus/merge-streams': 2.3.0
-      fast-glob: 3.3.3
-      ignore: 7.0.5
-      path-type: 6.0.0
-      slash: 5.1.0
-      unicorn-magic: 0.3.0
 
   globrex@0.1.2: {}
 
@@ -8161,8 +8124,6 @@ snapshots:
   ieee754@1.2.1: {}
 
   ignore@5.3.2: {}
-
-  ignore@7.0.5: {}
 
   image-size@2.0.2: {}
 
@@ -8745,8 +8706,6 @@ snapshots:
 
   path-type@4.0.0: {}
 
-  path-type@6.0.0: {}
-
   peberminta@0.9.0: {}
 
   pend@1.2.0: {}
@@ -8767,13 +8726,11 @@ snapshots:
 
   possible-typed-array-names@1.1.0: {}
 
-  postcss-cli@11.0.0(postcss@8.4.47):
+  postcss-cli@11.0.1(postcss@8.4.47):
     dependencies:
       chokidar: 3.6.0
-      dependency-graph: 0.11.0
+      dependency-graph: 1.0.0
       fs-extra: 11.3.0
-      get-stdin: 9.0.0
-      globby: 14.1.0
       picocolors: 1.1.1
       postcss: 8.4.47
       postcss-load-config: 5.1.0(postcss@8.4.47)
@@ -8781,6 +8738,7 @@ snapshots:
       pretty-hrtime: 1.0.3
       read-cache: 1.0.0
       slash: 5.1.0
+      tinyglobby: 0.2.14
       yargs: 17.7.2
     transitivePeerDependencies:
       - jiti
@@ -9793,8 +9751,6 @@ snapshots:
   unicode-property-aliases-ecmascript@2.1.0: {}
 
   unicorn-magic@0.1.0: {}
-
-  unicorn-magic@0.3.0: {}
 
   unique-string@2.0.0:
     dependencies:
