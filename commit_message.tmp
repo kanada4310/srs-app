@@ -1,1 +1,1 @@
-fix: Add missing imports for EditMode and Deck in editor components
+feat: Implement basic image occlusion drawing UI
