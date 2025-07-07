@@ -57,11 +57,7 @@ function ImageOcclusionNoteEditor({
     // Update note content with occlusions
     if (note) {
       db.notes.update(note.id, {
-        content: {
-          ...note.content,
-          type: NoteType.ImageOcclusion,
-          occlusions: occlusions,
-        } as ImageOcclusionNoteContent,
+        content: { ...note.content, occlusions: occlusions } as ImageOcclusionNoteContent,
       });
     }
   }, [occlusions, note]);
@@ -74,7 +70,7 @@ function ImageOcclusionNoteEditor({
       // Update note content with new imageId
       if (note) {
         db.notes.update(note.id, {
-          content: { ...note.content, type: NoteType.ImageOcclusion, image: newImageId },
+          content: { ...note.content, image: newImageId },
         });
       }
     } else {

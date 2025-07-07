@@ -1,1 +1,1 @@
-fix: Add missing 'type' property to ImageOcclusionNoteContent in handleImageSelect
+fix: Add 'type' property to ImageOcclusionNoteContent interface and remove redundant type assertions
