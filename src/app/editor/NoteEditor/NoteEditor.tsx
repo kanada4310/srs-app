@@ -1,8 +1,8 @@
 import { useSettings } from "@/logic/settings/hooks/useSettings";
 import { Link, RichTextEditor } from "@mantine/tiptap";
 import { Color } from "@tiptap/extension-color";
-import Image from "@tiptap/extension-image";
 import Highlight from "@tiptap/extension-highlight";
+import Image from "@tiptap/extension-image";
 import SubScript from "@tiptap/extension-subscript";
 import Superscript from "@tiptap/extension-superscript";
 import TextAlign from "@tiptap/extension-text-align";
