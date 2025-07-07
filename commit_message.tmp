@@ -1,1 +1,1 @@
-feat: Implement image occlusion selection, movement, and deletion
+feat: Add performance logging to saveImage function

@@ -7,6 +7,7 @@ export async function saveImage(
   fileName?: string,
   mimeType?: string
 ): Promise<string> {
+  console.time("saveImage");
   const image: Image = {
     id: uuidv4(),
     data: imageData,
@@ -14,6 +15,7 @@ export async function saveImage(
     mimeType: mimeType,
   };
   await db.images.add(image);
+  console.timeEnd("saveImage");
   return image.id!;
 }
 
