@@ -1,7 +1,7 @@
 import { ClozeNoteContent } from "../type-implementations/cloze/types";
 import { DoubleSidedNoteContent } from "../type-implementations/double-sided/types";
-import { NormalNoteContent } from "../type-implementations/normal/types";
 import { ImageOcclusionNoteContent } from "../type-implementations/image-occlusion/types";
+import { NormalNoteContent } from "../type-implementations/normal/types";
 import { NoteType } from "./note";
 
 export type NoteContent<T extends NoteType> = {

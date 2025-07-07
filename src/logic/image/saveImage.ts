@@ -1,8 +1,12 @@
+import { v4 as uuidv4 } from "uuid";
 import { db } from "../db";
 import { Image } from "./image";
-import { v4 as uuidv4 } from "uuid";
 
-export async function saveImage(imageData: Blob, fileName?: string, mimeType?: string): Promise<string> {
+export async function saveImage(
+  imageData: Blob,
+  fileName?: string,
+  mimeType?: string
+): Promise<string> {
   const image: Image = {
     id: uuidv4(),
     data: imageData,

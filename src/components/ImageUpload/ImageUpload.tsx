@@ -1,13 +1,11 @@
 import {
   ActionIcon,
-  Button,
   FileInput,
   Group,
   Image as MantineImage,
   Stack,
-  Text,
 } from "@mantine/core";
-import { IconPhoto, IconUpload, IconX } from "@tabler/icons-react";
+import { IconUpload, IconX } from "@tabler/icons-react";
 import { useState } from "react";
 
 interface ImageUploadProps {
@@ -20,9 +18,9 @@ export default function ImageUpload({
   previewUrl,
 }: ImageUploadProps) {
   const [file, setFile] = useState<File | null>(null);
-  const [localPreviewUrl, setLocalPreviewUrl] = useState<string | null>(
-    previewUrl
-  );
+  const [localPreviewUrl, setLocalPreviewUrl] = useState<
+    string | null | undefined
+  >(previewUrl);
 
   const handleFileChange = (selectedFile: File | null) => {
     setFile(selectedFile);
@@ -41,7 +39,7 @@ export default function ImageUpload({
       <FileInput
         label="Upload Image"
         placeholder="Click to upload or drag image here"
-        icon={<IconUpload size={16} />}
+        leftSection={<IconUpload size={16} />}
         accept="image/*"
         value={file}
         onChange={handleFileChange}
@@ -60,7 +58,7 @@ export default function ImageUpload({
       />
 
       {localPreviewUrl && (
-        <Group position="center">
+        <Group justify="center">
           <MantineImage
             src={localPreviewUrl}
             alt="Image preview"
