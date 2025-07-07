@@ -80,9 +80,7 @@ export default function WelcomeView() {
         </Stack>
         <Stack gap="xs">
           <Title order={3}>{t("welcome-view.about-privacy-title")}</Title>
-          <Text fz="sm">
-            {t("welcome-view.about-privacy-description")}
-          </Text>
+          <Text fz="sm">{t("welcome-view.about-privacy-description")}</Text>
         </Stack>
         <Group align="start">
           <Button
