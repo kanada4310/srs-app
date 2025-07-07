@@ -3,11 +3,11 @@ import "dexie-export-import";
 import dexieCloud from "dexie-cloud-addon";
 import { Card } from "./card/card";
 import { Deck } from "./deck/deck";
+import { Image } from "./image/image";
 import { NoteType } from "./note/note";
 import { Note } from "./note/note";
 import { Settings, SettingsValues } from "./settings/Settings";
 import { DeckStatistics } from "./statistics";
-import { Image } from "./image/image";
 
 export class Database extends Dexie {
   decks!: Table<Deck>;
