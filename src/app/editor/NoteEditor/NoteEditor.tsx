@@ -70,7 +70,6 @@ export function useNoteEditor(props: {
         TextAlign.configure({ types: ["heading", "paragraph"] }),
         Color,
         TextStyle,
-        Image,
         ImageDrop,
         ...(props.extensions ?? []),
       ],
@@ -118,6 +117,9 @@ function NoteEditor({ editor, controls, className }: NoteEditorProps) {
     return null; // editorがnullの場合は何もレンダリングしない
   }
 
+  console.log('NoteEditor editor:', editor); // 追加
+  console.log('NoteEditor settings:', settings); // 追加
+
   return (
     <>
       <RichTextEditor
@@ -137,12 +139,12 @@ function NoteEditor({ editor, controls, className }: NoteEditorProps) {
                 <NoteEditorControls controls={controls} editor={editor} />
               </RichTextEditor.Toolbar>
             )}
-            {settings.useBubbleMenu && (
+            {settings.useBubbleMenu && editor.isFocused && (
               <BubbleMenu editor={editor} tippyOptions={{ maxWidth: "none" }}>
                 <NoteEditorControls controls={controls} editor={editor} />
               </BubbleMenu>
             )}
-            {settings.useBubbleMenu && (
+            {settings.useBubbleMenu && !editor.isFocused && (
               <FloatingMenu editor={editor}>
                 <NoteEditorControls controls={controls} editor={editor} />
               </FloatingMenu>
