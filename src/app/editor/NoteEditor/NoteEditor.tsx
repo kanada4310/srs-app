@@ -117,8 +117,8 @@ function NoteEditor({ editor, controls, className }: NoteEditorProps) {
     return null; // editorがnullの場合は何もレンダリングしない
   }
 
-  console.log('NoteEditor editor:', editor); // 追加
-  console.log('NoteEditor settings:', settings); // 追加
+  console.log("NoteEditor editor:", editor); // 追加
+  console.log("NoteEditor settings:", settings); // 追加
 
   return (
     <>

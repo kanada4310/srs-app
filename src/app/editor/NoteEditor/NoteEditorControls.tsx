@@ -14,7 +14,7 @@ export function NoteEditorControls({
   editor,
   controls,
 }: NoteEditorControlsProps) {
-  console.log('NoteEditorControls editor:', editor); // 追加
+  console.log("NoteEditorControls editor:", editor); // 追加
   const [settings] = useSettings();
   return (
     <Box className={classes.controlsWrapper} tabIndex={-1}>
