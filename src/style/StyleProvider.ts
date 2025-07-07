@@ -50,16 +50,16 @@ export const presetTheme = createTheme({
   fontFamily: "Open Sans, sans-serif",
   colors: {
     primary: [
-      "#e0e1e8",
-      "#b0b2c2",
-      "#80839c",
-      "#505476",
-      "#232952",
-      "#1c2141",
-      "#151930",
-      "#0e1020",
-      "#070810",
-      "#000000",
+      "#eef2f9",
+      "#d4dcf0",
+      "#bbc7e7",
+      "#a1b2de",
+      "#879ed5",
+      "#6C91CE",
+      "#5a77ab",
+      "#485e88",
+      "#364565",
+      "#232952"
     ],
     forest: [
       "#E1EFE6",
