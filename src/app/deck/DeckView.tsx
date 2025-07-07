@@ -26,7 +26,7 @@ function DeckView() {
   const [superDecks] = useSuperDecks(deck);
   useScrollResetOnLocationChange();
 
-  useDocumentTitle(deck?.name ? deck?.name : "Skola");
+  useDocumentTitle(deck?.name ? deck?.name : t("global.app-name"));
   useHotkeys([["n", () => navigate("/new/" + deck?.id)]]);
 
   if (isDeckReady && !deck) {
