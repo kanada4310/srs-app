@@ -62,7 +62,8 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "biome check --write --no-errors-on-unmatched"
+      "biome check --apply-unsafe --no-errors-on-unmatched",
+      "biome check --no-errors-on-unmatched"
     ],
     "*.json": [
       "biome check --write --no-errors-on-unmatched"
@@ -70,9 +71,12 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint-staged"
+      "pre-commit": "pnpm pre-commit-checks"
     }
   },
+  "scripts": {
+    "pre-commit-checks": "pnpm lint-staged && pnpm lint:type",
+
   "eslintConfig": {
     "extends": [
       "react-app"
