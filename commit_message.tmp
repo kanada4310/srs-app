@@ -1,1 +1,1 @@
-feat: Add performance logging to saveImage function
+fix: Add missing 'type' property to ImageOcclusionNoteContent in db.notes.update

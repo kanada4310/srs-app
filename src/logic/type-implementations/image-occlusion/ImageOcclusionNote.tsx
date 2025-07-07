@@ -32,9 +32,12 @@ function ImageOcclusionNoteEditor({
   const [startPoint, setStartPoint] = useState<{ x: number; y: number } | null>(
     null
   );
-  const [currentRect, setCurrentRect] = useState<{ x: number; y: number; width: number; height: number } | null>(
-    null
-  );
+  const [currentRect, setCurrentRect] = useState<{
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+  } | null>(null);
   const [selectedOcclusionId, setSelectedOcclusionId] = useState<string | null>(
     null
   );
@@ -54,7 +57,11 @@ function ImageOcclusionNoteEditor({
     // Update note content with occlusions
     if (note) {
       db.notes.update(note.id, {
-        content: { ...note.content, occlusions: occlusions } as ImageOcclusionNoteContent,
+        content: {
+          ...note.content,
+          type: NoteType.ImageOcclusion,
+          occlusions: occlusions,
+        } as ImageOcclusionNoteContent,
       });
     }
   }, [occlusions, note]);
@@ -205,7 +212,11 @@ function ImageOcclusionNoteEditor({
             border: "1px solid #ccc",
           }}
         >
-          <img src={imageUrl} alt="Occlusion target" style={{ maxWidth: "100%" }} />
+          <img
+            src={imageUrl}
+            alt="Occlusion target"
+            style={{ maxWidth: "100%" }}
+          />
           <svg
             style={{
               position: "absolute",
@@ -220,6 +231,7 @@ function ImageOcclusionNoteEditor({
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp} // End drawing/moving if mouse leaves the area
           >
+            <title>Image Occlusion Drawing Area</title>
             {occlusions.map((occ) => (
               <rect
                 key={occ.id}
@@ -294,4 +306,3 @@ export const ImageOcclusionTypeAdapter: NoteTypeAdapter<NoteType.ImageOcclusion>
       );
     },
   };
-
