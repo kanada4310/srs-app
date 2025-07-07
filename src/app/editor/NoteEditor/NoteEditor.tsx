@@ -1,5 +1,5 @@
+import { getImage, saveImage } from "@/logic/image/saveImage";
 import { useSettings } from "@/logic/settings/hooks/useSettings";
-import { saveImage, getImage } from "@/logic/image/saveImage";
 import { Link, RichTextEditor } from "@mantine/tiptap";
 import { Color } from "@tiptap/extension-color";
 import Highlight from "@tiptap/extension-highlight";
