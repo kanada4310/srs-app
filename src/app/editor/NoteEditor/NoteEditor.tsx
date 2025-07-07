@@ -18,7 +18,7 @@ import {
   useEditor,
 } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
-import React from "react";
+import React, { useRef } from "react";
 
 import { ImageDrop } from "./ImageDrop";
 import classes from "./NoteEditor.module.css";
@@ -83,6 +83,13 @@ export function useNoteEditor(props: {
 
 function NoteEditor({ editor, controls, className }: NoteEditorProps) {
   const [settings, areSettingsReady] = useSettings();
+  const isMounted = useRef(true);
+
+  useEffect(() => {
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);
 
   const addImage = async (data: DataTransfer) => {
     const { files } = data;
@@ -96,7 +103,9 @@ function NoteEditor({ editor, controls, className }: NoteEditorProps) {
             const reader = new FileReader();
             reader.onloadend = () => {
               console.log("Base64 Image Data:", reader.result); // 追加
-              editor.commands.insertImage({ src: reader.result as string });
+              if (isMounted.current) {
+                editor.commands.insertImage({ src: reader.result as string });
+              }
             };
             reader.readAsDataURL(image.data);
           }
