@@ -19,9 +19,7 @@ export default function AddImageControl({ editor }: AddImageControlProps) {
         }
         fileReader.onloadend = () => {
           data = fileReader.result;
-          editor?.commands.insertContent(
-            `<img src="` + data + `" alt="Image inserted by user"/>`
-          );
+          editor?.commands.insertImage({ src: data as string });
           editor?.commands.focus();
         };
       }}
