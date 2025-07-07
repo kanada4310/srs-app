@@ -1,13 +1,13 @@
-import { NoteTypeAdapter, NoteEditorProps } from "@/logic/NoteTypeAdapter";
-import { NoteType } from "@/logic/note/note";
 import ImageUpload from "@/components/ImageUpload/ImageUpload";
-import { saveImage, getImage, deleteImage } from "@/logic/image/saveImage";
+import { NoteEditorProps, NoteTypeAdapter } from "@/logic/NoteTypeAdapter";
 import { db } from "@/logic/db";
-import { useState, useEffect } from "react";
-import { ImageOcclusionNoteContent } from "./types";
-import { Stack, Button, Group } from "@mantine/core";
+import { deleteImage, getImage, saveImage } from "@/logic/image/saveImage";
+import { NoteType } from "@/logic/note/note";
+import { Button, Group, Stack } from "@mantine/core";
 import { IconTrash } from "@tabler/icons-react";
 import { t } from "i18next";
+import { useEffect, useState } from "react";
+import { ImageOcclusionNoteContent } from "./types";
 
 export const ImageOcclusionTypeAdapter: NoteTypeAdapter<NoteType.ImageOcclusion> =
   {
@@ -41,10 +41,12 @@ export const ImageOcclusionTypeAdapter: NoteTypeAdapter<NoteType.ImageOcclusion>
       return "[Image Occlusion Card] Sort Field";
     },
 
-    editor({ note, deck, mode, requestedFinish, setRequestedFinish }: NoteEditorProps) {
-      const [imageFile, setImageFile] = useState<File | null>(null);
+    editor({ note: _note, deck: _deck, mode: _mode, requestedFinish: _requestedFinish, setRequestedFinish: _setRequestedFinish }: NoteEditorProps) {
+      const [_imageFile, setImageFile] = useState<File | null>(null);
       const [imageUrl, setImageUrl] = useState<string | null>(null);
-      const [currentImageId, setCurrentImageId] = useState<string | undefined>(note?.content.image);
+      const [currentImageId, setCurrentImageId] = useState<string | undefined>(
+        note?.content.image
+      );
 
       useEffect(() => {
         if (note?.content.image) {
@@ -64,7 +66,10 @@ export const ImageOcclusionTypeAdapter: NoteTypeAdapter<NoteType.ImageOcclusion>
           // Update note content with new imageId
           if (note) {
             db.notes.update(note.id, {
-              content: { ...note.content, image: newImageId } as ImageOcclusionNoteContent,
+              content: {
+                ...note.content,
+                image: newImageId,
+              } as ImageOcclusionNoteContent,
             });
           }
         } else {
@@ -73,7 +78,10 @@ export const ImageOcclusionTypeAdapter: NoteTypeAdapter<NoteType.ImageOcclusion>
             await deleteImage(currentImageId);
             if (note) {
               db.notes.update(note.id, {
-                content: { ...note.content, image: undefined } as ImageOcclusionNoteContent,
+                content: {
+                  ...note.content,
+                  image: undefined,
+                } as ImageOcclusionNoteContent,
               });
             }
           }
@@ -85,7 +93,10 @@ export const ImageOcclusionTypeAdapter: NoteTypeAdapter<NoteType.ImageOcclusion>
 
       return (
         <Stack>
-          <ImageUpload onImageSelect={handleImageSelect} previewUrl={imageUrl} />
+          <ImageUpload
+            onImageSelect={handleImageSelect}
+            previewUrl={imageUrl}
+          />
           {imageUrl && (
             <Group position="center">
               <Button

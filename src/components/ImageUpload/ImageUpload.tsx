@@ -1,15 +1,28 @@
-import { Image as MantineImage, Button, Group, Text, FileInput } from '@mantine/core';
-import { IconUpload, IconPhoto, IconX } from '@tabler/icons-react';
-import { useState } from 'react';
+import {
+  ActionIcon,
+  Button,
+  FileInput,
+  Group,
+  Image as MantineImage,
+  Stack,
+  Text,
+} from "@mantine/core";
+import { IconPhoto, IconUpload, IconX } from "@tabler/icons-react";
+import { useState } from "react";
 
 interface ImageUploadProps {
   onImageSelect: (file: File | null) => void;
   previewUrl?: string | null;
 }
 
-export default function ImageUpload({ onImageSelect, previewUrl }: ImageUploadProps) {
+export default function ImageUpload({
+  onImageSelect,
+  previewUrl,
+}: ImageUploadProps) {
   const [file, setFile] = useState<File | null>(null);
-  const [localPreviewUrl, setLocalPreviewUrl] = useState<string | null>(previewUrl);
+  const [localPreviewUrl, setLocalPreviewUrl] = useState<string | null>(
+    previewUrl
+  );
 
   const handleFileChange = (selectedFile: File | null) => {
     setFile(selectedFile);
@@ -35,7 +48,11 @@ export default function ImageUpload({ onImageSelect, previewUrl }: ImageUploadPr
         clearable
         rightSection={
           file && (
-            <ActionIcon onClick={() => handleFileChange(null)} variant="subtle" color="red">
+            <ActionIcon
+              onClick={() => handleFileChange(null)}
+              variant="subtle"
+              color="red"
+            >
               <IconX size={16} />
             </ActionIcon>
           )
