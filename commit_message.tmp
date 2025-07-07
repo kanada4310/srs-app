@@ -1,1 +1,1 @@
-fix: Resolve lint and typecheck errors after editor refactor
+fix: Handle null editor prop in NoteEditor to prevent React error #310

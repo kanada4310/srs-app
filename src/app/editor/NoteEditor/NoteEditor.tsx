@@ -94,6 +94,10 @@ function NoteEditor({ editor, controls, className }: NoteEditorProps) {
     }
   };
 
+  if (!editor) {
+    return null; // editorがnullの場合は何もレンダリングしない
+  }
+
   return (
     <>
       <RichTextEditor
@@ -108,17 +112,17 @@ function NoteEditor({ editor, controls, className }: NoteEditorProps) {
       >
         {areSettingsReady && (
           <>
-            {editor && editor.isFocused && settings.useToolbar && (
+            {editor.isFocused && settings.useToolbar && (
               <RichTextEditor.Toolbar className={classes.toolbar} tabIndex={-1}>
                 <NoteEditorControls controls={controls} editor={editor} />
               </RichTextEditor.Toolbar>
             )}
-            {editor && settings.useBubbleMenu && (
+            {settings.useBubbleMenu && (
               <BubbleMenu editor={editor} tippyOptions={{ maxWidth: "none" }}>
                 <NoteEditorControls controls={controls} editor={editor} />
               </BubbleMenu>
             )}
-            {editor && settings.useBubbleMenu && (
+            {settings.useBubbleMenu && (
               <FloatingMenu editor={editor}>
                 <NoteEditorControls controls={controls} editor={editor} />
               </FloatingMenu>
