@@ -3,6 +3,7 @@
         & :global(.ProseMirror) {
             padding: 1rem;
             max-height: 400px;
+            height: auto; /* 追加 */
             overflow-y: auto;
             border: 1px solid var(--mantine-color-default-border);
             border-radius: var(--mantine-radius-sm);
