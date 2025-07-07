@@ -1,4 +1,5 @@
-import { NoteEditorProps } from "@/logic/NoteTypeAdapter";
+import { EditMode, NoteEditorProps } from "@/logic/NoteTypeAdapter";
+import { Deck } from "@/logic/deck/deck";
 import { NoteType } from "@/logic/note/note";
 import { useHotkeys } from "@mantine/hooks";
 import { RichTextEditor } from "@mantine/tiptap";

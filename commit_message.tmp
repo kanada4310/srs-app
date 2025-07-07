@@ -1,1 +1,1 @@
-fix: Resolve type errors and rendering issues in NoteEditor components
+fix: Add missing imports for EditMode and Deck in editor components

@@ -4,7 +4,8 @@ import {
   successfullyAdded,
   successfullySaved,
 } from "@/components/Notification/Notification";
-import { NoteEditorProps } from "@/logic/NoteTypeAdapter";
+import { EditMode, NoteEditorProps } from "@/logic/NoteTypeAdapter";
+import { Deck } from "@/logic/deck/deck";
 import { NoteType } from "@/logic/note/note";
 import { Note } from "@/logic/note/note";
 import { BasicNoteTypeAdapter } from "@/logic/type-implementations/normal/BasicNote";
