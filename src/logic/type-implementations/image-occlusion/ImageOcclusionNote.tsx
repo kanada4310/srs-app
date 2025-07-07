@@ -74,7 +74,7 @@ function ImageOcclusionNoteEditor({
       // Update note content with new imageId
       if (note) {
         db.notes.update(note.id, {
-          content: { ...note.content, image: newImageId },
+          content: { ...note.content, type: NoteType.ImageOcclusion, image: newImageId },
         });
       }
     } else {
