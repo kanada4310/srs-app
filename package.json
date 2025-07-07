@@ -58,25 +58,9 @@
     "deploy": "gh-pages -d dist",
     "build-and-deploy": "npm run predeploy && npm run deploy",
     "prepare": "husky",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "pre-commit-checks": "pnpm lint-staged && pnpm lint:type"
   },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "biome check --apply-unsafe --no-errors-on-unmatched",
-      "biome check --no-errors-on-unmatched"
-    ],
-    "*.json": [
-      "biome check --write --no-errors-on-unmatched"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pnpm pre-commit-checks"
-    }
-  },
-  "scripts": {
-    "pre-commit-checks": "pnpm lint-staged && pnpm lint:type",
-
   "eslintConfig": {
     "extends": [
       "react-app"

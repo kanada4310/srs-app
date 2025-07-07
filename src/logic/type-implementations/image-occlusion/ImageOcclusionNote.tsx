@@ -57,7 +57,10 @@ function ImageOcclusionNoteEditor({
     // Update note content with occlusions
     if (note) {
       db.notes.update(note.id, {
-        content: { ...note.content, occlusions: occlusions } as ImageOcclusionNoteContent,
+        content: {
+          ...note.content,
+          occlusions: occlusions,
+        } as ImageOcclusionNoteContent,
       });
     }
   }, [occlusions, note]);
