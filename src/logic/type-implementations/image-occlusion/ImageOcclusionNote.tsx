@@ -28,10 +28,14 @@ function ImageOcclusionNoteEditor({
   );
 
   const [isDrawing, setIsDrawing] = useState(false);
+  const [isMoving, setIsMoving] = useState(false);
   const [startPoint, setStartPoint] = useState<{ x: number; y: number } | null>(
     null
   );
   const [currentRect, setCurrentRect] = useState<{ x: number; y: number; width: number; height: number } | null>(
+    null
+  );
+  const [selectedOcclusionId, setSelectedOcclusionId] = useState<string | null>(
     null
   );
   const imageContainerRef = useRef<HTMLDivElement>(null);
@@ -85,30 +89,64 @@ function ImageOcclusionNoteEditor({
 
   const handleMouseDown = (e: React.MouseEvent<SVGSVGElement>) => {
     if (!imageContainerRef.current) return;
-    setIsDrawing(true);
+
     const rect = imageContainerRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    setStartPoint({ x, y });
-    setCurrentRect({ x, y, width: 0, height: 0 });
+
+    // Check if an existing occlusion was clicked
+    const clickedOcclusion = occlusions.find(
+      (occ) =>
+        x >= occ.x &&
+        x <= occ.x + occ.width &&
+        y >= occ.y &&
+        y <= occ.y + occ.height
+    );
+
+    if (clickedOcclusion) {
+      setSelectedOcclusionId(clickedOcclusion.id);
+      setIsMoving(true);
+      setStartPoint({ x: e.clientX, y: e.clientY }); // Use clientX/Y for moving
+    } else {
+      setSelectedOcclusionId(null);
+      setIsDrawing(true);
+      setStartPoint({ x, y });
+      setCurrentRect({ x, y, width: 0, height: 0 });
+    }
   };
 
   const handleMouseMove = (e: React.MouseEvent<SVGSVGElement>) => {
-    if (!isDrawing || !startPoint || !imageContainerRef.current) return;
+    if (!imageContainerRef.current) return;
     const rect = imageContainerRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
 
-    const newX = Math.min(startPoint.x, x);
-    const newY = Math.min(startPoint.y, y);
-    const newWidth = Math.abs(x - startPoint.x);
-    const newHeight = Math.abs(y - startPoint.y);
+    if (isDrawing && startPoint) {
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
 
-    setCurrentRect({ x: newX, y: newY, width: newWidth, height: newHeight });
+      const newX = Math.min(startPoint.x, x);
+      const newY = Math.min(startPoint.y, y);
+      const newWidth = Math.abs(x - startPoint.x);
+      const newHeight = Math.abs(y - startPoint.y);
+
+      setCurrentRect({ x: newX, y: newY, width: newWidth, height: newHeight });
+    } else if (isMoving && selectedOcclusionId && startPoint) {
+      const dx = e.clientX - startPoint.x;
+      const dy = e.clientY - startPoint.y;
+
+      setOcclusions((prev) =>
+        prev.map((occ) =>
+          occ.id === selectedOcclusionId
+            ? { ...occ, x: occ.x + dx, y: occ.y + dy } // Update position
+            : occ
+        )
+      );
+      setStartPoint({ x: e.clientX, y: e.clientY }); // Update start point for continuous dragging
+    }
   };
 
   const handleMouseUp = () => {
     setIsDrawing(false);
+    setIsMoving(false);
     setStartPoint(null);
     if (currentRect && currentRect.width > 0 && currentRect.height > 0) {
       setOcclusions((prev) => [
@@ -119,8 +157,13 @@ function ImageOcclusionNoteEditor({
     setCurrentRect(null);
   };
 
-  const handleDeleteOcclusion = (id: string) => {
-    setOcclusions((prev) => prev.filter((occ) => occ.id !== id));
+  const handleDeleteOcclusion = () => {
+    if (selectedOcclusionId) {
+      setOcclusions((prev) =>
+        prev.filter((occ) => occ.id !== selectedOcclusionId)
+      );
+      setSelectedOcclusionId(null);
+    }
   };
 
   if (!note) {
@@ -140,6 +183,16 @@ function ImageOcclusionNoteEditor({
           >
             {t("note.edit.delete-image")}
           </Button>
+          {selectedOcclusionId && (
+            <Button
+              variant="outline"
+              color="red"
+              leftSection={<IconTrash size={16} />}
+              onClick={handleDeleteOcclusion}
+            >
+              {t("note.edit.delete-occlusion")}
+            </Button>
+          )}
         </Group>
       )}
 
@@ -165,6 +218,7 @@ function ImageOcclusionNoteEditor({
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp} // End drawing/moving if mouse leaves the area
           >
             {occlusions.map((occ) => (
               <rect
@@ -175,7 +229,7 @@ function ImageOcclusionNoteEditor({
                 height={occ.height}
                 fill="black"
                 opacity="0.5"
-                stroke="red"
+                stroke={occ.id === selectedOcclusionId ? "yellow" : "red"}
                 strokeWidth="2"
               />
             ))}
@@ -195,7 +249,6 @@ function ImageOcclusionNoteEditor({
           </svg>
         </div>
       )}
-      {/* ここにマスキング機能のUIを追加 */}
       <span>Image Occlusion Card Editor</span>
     </Stack>
   );
