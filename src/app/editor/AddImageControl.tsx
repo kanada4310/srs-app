@@ -1,4 +1,3 @@
-import { FileButton } from "@mantine/core";
 import { RichTextEditor } from "@mantine/tiptap";
 import { IconPhoto } from "@tabler/icons-react";
 import { Editor } from "@tiptap/react";
@@ -9,29 +8,33 @@ interface AddImageControlProps {
 }
 
 export default function AddImageControl({ editor }: AddImageControlProps) {
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    console.log("Selected file:", file);
+    if (file) {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onloadend = () => {
+        const data = fileReader.result;
+        console.log("Base64 Image Data:", data);
+        editor?.commands.insertImage({ src: data as string });
+        editor?.commands.focus();
+      };
+    }
+  };
+
   return (
-    <FileButton
-      onChange={(file) => {
-        console.log("Selected file:", file); // 追加
-        const fileReader = new FileReader();
-        let data: string | ArrayBuffer | null;
-        if (file) {
-          fileReader.readAsDataURL(file);
-        }
-        fileReader.onloadend = () => {
-          data = fileReader.result;
-          console.log("Base64 Image Data:", data); // 追加
-          editor?.commands.insertImage({ src: data as string });
-          editor?.commands.focus();
-        };
-      }}
-      accept={"image/jpeg, image/jpg, image/png, image/heic"}
-    >
-      {(props) => (
-        <RichTextEditor.Control {...props} tabIndex={-1}>
-          <IconPhoto />
-        </RichTextEditor.Control>
-      )}
-    </FileButton>
+    <RichTextEditor.Control>
+      <label htmlFor="image-upload">
+        <IconPhoto />
+      </label>
+      <input
+        id="image-upload"
+        type="file"
+        accept="image/jpeg, image/jpg, image/png, image/heic"
+        style={{ display: "none" }}
+        onChange={handleFileChange}
+      />
+    </RichTextEditor.Control>
   );
 }
