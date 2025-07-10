@@ -1,13 +1,15 @@
 import { RichTextEditor } from "@mantine/tiptap";
 import { IconPhoto } from "@tabler/icons-react";
 import { Editor } from "@tiptap/react";
-import React from "react";
+import React, { useRef } from "react";
 
 interface AddImageControlProps {
   editor: Editor | null;
 }
 
 export default function AddImageControl({ editor }: AddImageControlProps) {
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     console.log("Selected file:", file);
@@ -23,18 +25,22 @@ export default function AddImageControl({ editor }: AddImageControlProps) {
     }
   };
 
+  const handleControlClick = () => {
+    fileInputRef.current?.click();
+  };
+
   return (
-    <RichTextEditor.Control>
-      <label htmlFor="image-upload">
+    <>
+      <RichTextEditor.Control onClick={handleControlClick}>
         <IconPhoto />
-      </label>
+      </RichTextEditor.Control>
       <input
-        id="image-upload"
+        ref={fileInputRef}
         type="file"
         accept="image/jpeg, image/jpg, image/png, image/heic"
         style={{ display: "none" }}
         onChange={handleFileChange}
       />
-    </RichTextEditor.Control>
+    </>
   );
 }

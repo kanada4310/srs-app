@@ -1,1 +1,1 @@
-fix: Use standard input for image uploads instead of FileButton
+fix: Use useRef to trigger file input in AddImageControl
