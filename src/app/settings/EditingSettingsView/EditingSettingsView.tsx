@@ -13,6 +13,8 @@ import {
 } from "@tabler/icons-react";
 import { t } from "i18next";
 import React from "react";
+import { useSettings } from "../../../logic/settings/hooks/useSettings";
+import { setSetting } from "../../../logic/settings/setSetting";
 import Section from "../Section";
 import SettingsInput from "../SettingsInput";
 import classes from "./EditingSettingsView.module.css";
@@ -20,6 +22,8 @@ import classes from "./EditingSettingsView.module.css";
 interface EditingSettingsViewProps {}
 
 export default function EditingSettingsView({}: EditingSettingsViewProps) {
+  const [settings] = useSettings();
+
   return (
     <Stack className={classes.container} gap="xl">
       <Section title={t("settings.editing.editor-options")}>
@@ -28,12 +32,26 @@ export default function EditingSettingsView({}: EditingSettingsViewProps) {
           description={t("settings.editing.use-toolbar-description")}
           settingsKey="useToolbar"
           inputType={"checkbox"}
+          checked={settings.useToolbar}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            setSetting("useToolbar", e.target.checked);
+            if (e.target.checked) {
+              setSetting("useBubbleMenu", false);
+            }
+          }}
         />
         <SettingsInput
           label={t("settings.editing.use-bubble-menu")}
           description={t("settings.editing-use-bubble-menu-description")}
           settingsKey="useBubbleMenu"
           inputType={"checkbox"}
+          checked={settings.useBubbleMenu}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            setSetting("useBubbleMenu", e.target.checked);
+            if (e.target.checked) {
+              setSetting("useToolbar", false);
+            }
+          }}
         />
         <Alert color="gray" icon={<IconInfoCircle />}>
           {t("settings.editing.markdown-hint")}

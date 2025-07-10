@@ -12,6 +12,7 @@ export default function AddImageControl({ editor }: AddImageControlProps) {
   return (
     <FileButton
       onChange={(file) => {
+        console.log("Selected file:", file); // 追加
         const fileReader = new FileReader();
         let data: string | ArrayBuffer | null;
         if (file) {
@@ -19,6 +20,7 @@ export default function AddImageControl({ editor }: AddImageControlProps) {
         }
         fileReader.onloadend = () => {
           data = fileReader.result;
+          console.log("Base64 Image Data:", data); // 追加
           editor?.commands.insertImage({ src: data as string });
           editor?.commands.focus();
         };

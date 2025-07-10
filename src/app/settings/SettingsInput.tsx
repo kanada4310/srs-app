@@ -11,6 +11,8 @@ interface SettingsInputProps {
   description?: JSX.Element | string;
   settingsKey: keyof SettingsValues;
   inputType: "text" | "number" | "switch" | "checkbox";
+  checked?: boolean;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export default function SettingsInput({
@@ -18,6 +20,8 @@ export default function SettingsInput({
   description,
   inputType,
   settingsKey,
+  checked,
+  onChange,
 }: SettingsInputProps) {
   const [status, setStatus] = useState(SettingStatus.NONE);
   const [setting] = useSetting(settingsKey);
@@ -81,12 +85,16 @@ export default function SettingsInput({
       return (
         <Group align="start" wrap="nowrap" gap="xs" justify="space-between">
           <Checkbox
-            checked={value as boolean | undefined}
+            checked={checked ?? (value as boolean | undefined)}
             label={label}
             description={description}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-              setTouched(true);
-              setValue(event.currentTarget.checked);
+              if (onChange) {
+                onChange(event);
+              } else {
+                setTouched(true);
+                setValue(event.currentTarget.checked);
+              }
             }}
           />
           <StatusIndicator status={status} />

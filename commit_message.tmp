@@ -1,1 +1,0 @@
-fix: Add 'type' property to ImageOcclusionNoteContent interface and remove redundant type assertions
