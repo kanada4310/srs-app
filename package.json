@@ -109,7 +109,7 @@
     "i18next-parser": "9.0.2",
     "lint-staged": "^16.1.2",
     "postcss": "8.4.47",
-    "postcss-cli": "11.0.0",
+    "postcss-cli": "11.0.1",
     "postcss-preset-mantine": "1.13.0",
     "postcss-simple-vars": "7.0.1",
     "scheduler": "^0.26.0",
