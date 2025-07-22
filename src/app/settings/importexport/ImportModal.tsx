@@ -3,9 +3,10 @@ import React, { useState } from "react";
 import ModalProps from "../../../components/ModalProps";
 import { Deck } from "../../../logic/deck/deck";
 
-import { IconJson, IconTxt } from "@tabler/icons-react";
+import { IconJson, IconTxt, IconCsv } from "@tabler/icons-react";
 import ImportFromJSON from "./ImportFromJSON";
 import ImportFromPlainText from "./ImportFromPlainText";
+import ImportFromCSV from "./ImportFromCSV";
 
 interface ImportModalProps extends ModalProps {
   deck?: Deck;
@@ -59,6 +60,13 @@ export default function ImportModal({
               From Plain Text
             </Tabs.Tab>
             <Tabs.Tab
+              value="cardsfromcsv"
+              leftSection={<IconCsv />}
+              onClick={() => setTab("cardsfromcsv")}
+            >
+              From CSV
+            </Tabs.Tab>
+            <Tabs.Tab
               value="deckfromjson"
               leftSection={<IconJson />}
               onClick={() => setTab("deckfromjson")}
@@ -68,6 +76,17 @@ export default function ImportModal({
           </Tabs.List>
           <Tabs.Panel value="cardsfromplaintext">
             <ImportFromPlainText
+              file={file}
+              setFile={setFile}
+              fileText={fileText}
+              setFileText={setFileText}
+              deck={deck}
+              importStatus={importStatus}
+              setImportStatus={setImportStatus}
+            />
+          </Tabs.Panel>
+          <Tabs.Panel value="cardsfromcsv">
+            <ImportFromCSV
               file={file}
               setFile={setFile}
               fileText={fileText}
