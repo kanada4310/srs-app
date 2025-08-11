@@ -3,10 +3,10 @@ import React, { useState } from "react";
 import ModalProps from "../../../components/ModalProps";
 import { Deck } from "../../../logic/deck/deck";
 
-import { IconJson, IconTxt, IconCsv } from "@tabler/icons-react";
+import { IconCsv, IconJson, IconTxt } from "@tabler/icons-react";
+import ImportFromCSV from "./ImportFromCSV";
 import ImportFromJSON from "./ImportFromJSON";
 import ImportFromPlainText from "./ImportFromPlainText";
-import ImportFromCSV from "./ImportFromCSV";
 
 interface ImportModalProps extends ModalProps {
   deck?: Deck;

@@ -1,15 +1,21 @@
-
 import { Stack } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
 import { t } from "i18next";
 import Papa from "papaparse";
-import { ImportFromSourceProps } from "./ImportModal";
+import { BasicNoteTypeAdapter } from "../../../logic/type-implementations/normal/BasicNote";
 import FileImport from "./FileImport";
 import ImportButton from "./ImportButton";
-import { BasicNoteTypeAdapter } from "../../../logic/type-implementations/normal/BasicNote";
+import { ImportFromSourceProps } from "./ImportModal";
 
-const ImportFromCSV = ({ file, setFile, fileText, setFileText, importStatus, setImportStatus, deck }: ImportFromSourceProps) => {
-
+const ImportFromCSV = ({
+  file,
+  setFile,
+  fileText,
+  setFileText,
+  importStatus,
+  setImportStatus,
+  deck,
+}: ImportFromSourceProps) => {
   const handleImport = async () => {
     if (!fileText || !deck) {
       return;
