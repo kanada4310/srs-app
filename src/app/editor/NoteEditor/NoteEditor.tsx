@@ -123,12 +123,6 @@ function NoteEditor({ editor, controls, className }: NoteEditorProps) {
       console.log("No editor, files, or files array is empty.");
     }
   };
-            reader.readAsDataURL(image.data);
-          }
-        }
-      }
-    }
-  };
 
   if (!editor) {
     return null; // editorがnullの場合は何もレンダリングしない
