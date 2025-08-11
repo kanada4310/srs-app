@@ -102,11 +102,27 @@ function NoteEditor({ editor, controls, className }: NoteEditorProps) {
           if (image) {
             const reader = new FileReader();
             reader.onloadend = () => {
-              console.log("Base64 Image Data:", reader.result); // 追加
+              console.log("Base64 Image Data:", reader.result);
+              console.log("Attempting to insert image into editor...");
               if (isMounted.current) {
                 editor.commands.insertImage({ src: reader.result as string });
+                console.log("Image insertion command executed.");
+              } else {
+                console.log("Component is unmounted, not inserting image.");
               }
             };
+            reader.readAsDataURL(image.data);
+          } else {
+            console.log("Image not found for ID:", imageId);
+          }
+        } else {
+          console.log("File is not an image:", file.type);
+        }
+      }
+    } else {
+      console.log("No editor, files, or files array is empty.");
+    }
+  };
             reader.readAsDataURL(image.data);
           }
         }
