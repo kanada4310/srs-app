@@ -19,6 +19,7 @@ import {
 import StarterKit from "@tiptap/starter-kit";
 import React, { useRef, useEffect } from "react";
 
+import Image from "@tiptap/extension-image";
 import { ImageDrop } from "./ImageDrop";
 import classes from "./NoteEditor.module.css";
 import { NoteEditorControls } from "./NoteEditorControls";
@@ -69,6 +70,7 @@ export function useNoteEditor(props: {
         TextAlign.configure({ types: ["heading", "paragraph"] }),
         Color,
         TextStyle,
+        Image,
         ImageDrop,
         ...(props.extensions ?? []),
       ],
@@ -138,13 +140,27 @@ function NoteEditor({ editor, controls, className }: NoteEditorProps) {
                 <NoteEditorControls controls={controls} editor={editor} />
               </RichTextEditor.Toolbar>
             )}
-            {settings.useBubbleMenu && editor.isFocused && (
-              <BubbleMenu editor={editor} tippyOptions={{ maxWidth: "none" }}>
+            {settings.useBubbleMenu && (
+              <BubbleMenu
+                editor={editor}
+                tippyOptions={{ maxWidth: "none" }}
+                shouldShow={({ editor }) => {
+                  // only show the bubble menu for text selections, not for node selections (e.g. images)
+                  return (
+                    editor.isFocused && editor.state.selection.empty === false
+                  );
+                }}
+              >
                 <NoteEditorControls controls={controls} editor={editor} />
               </BubbleMenu>
             )}
-            {settings.useBubbleMenu && !editor.isFocused && (
-              <FloatingMenu editor={editor}>
+            {settings.useBubbleMenu && (
+              <FloatingMenu
+                editor={editor}
+                shouldShow={({ editor }) => {
+                  return editor.isEmpty;
+                }}
+              >
                 <NoteEditorControls controls={controls} editor={editor} />
               </FloatingMenu>
             )}
