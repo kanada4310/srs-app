@@ -19,7 +19,7 @@ export default function AddImageControl({ editor }: AddImageControlProps) {
         const data = fileReader.result;
         console.log("Base64 Image Data:", data);
         editor?.commands.insertImage({ src: data as string });
-        editor?.commands.focus();
+        editor?.chain().focus().run(); // Add this line
       };
     }
   };
@@ -27,6 +27,10 @@ export default function AddImageControl({ editor }: AddImageControlProps) {
   return (
     <button
       type="button"
+      onClick={(e) => {
+        e.preventDefault();
+        fileInputRef.current?.click();
+      }}
       tabIndex={-1}
       role="button"
       style={{
