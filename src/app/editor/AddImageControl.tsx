@@ -15,6 +15,20 @@ export default function AddImageControl({ editor }: AddImageControlProps) {
       "File input mounted/unmounted:",
       fileInputRef.current ? "mounted" : "unmounted"
     );
+
+    const currentInput = fileInputRef.current;
+    if (currentInput) {
+      const nativeChangeHandler = (_event: Event) => {
+        console.log("Native change event fired!");
+        // You might want to call handleFileChange here directly if the React onChange is truly not firing
+        // handleFileChange(event as React.ChangeEvent<HTMLInputElement>);
+      };
+      currentInput.addEventListener("change", nativeChangeHandler);
+
+      return () => {
+        currentInput.removeEventListener("change", nativeChangeHandler);
+      };
+    }
   }, [fileInputRef.current]);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
