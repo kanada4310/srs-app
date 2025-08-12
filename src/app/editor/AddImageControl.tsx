@@ -25,23 +25,34 @@ export default function AddImageControl({ editor }: AddImageControlProps) {
   };
 
   return (
-    <>
-      <button
-        type="button"
-        onClick={() => fileInputRef.current?.click()}
-        tabIndex={-1}
-        role="button"
-        style={{ background: "none", border: "none", cursor: "pointer" }}
-      >
-        <IconPhoto />
-      </button>
+    <button
+      type="button"
+      tabIndex={-1}
+      role="button"
+      style={{
+        position: "relative",
+        overflow: "hidden",
+        background: "none",
+        border: "none",
+        cursor: "pointer",
+      }}
+    >
+      <IconPhoto />
       <input
         ref={fileInputRef}
         type="file"
         accept="image/jpeg, image/jpg, image/png, image/heic"
-        style={{ display: "none" }}
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          opacity: 0,
+          cursor: "pointer",
+        }}
         onChange={handleFileChange}
       />
-    </>
+    </button>
   );
 }
