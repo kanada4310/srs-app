@@ -26,11 +26,12 @@ export default function AddImageControl({ editor }: AddImageControlProps) {
   };
 
   return (
-    <label>
+    <label htmlFor="image-upload-input">
       <RichTextEditor.Control>
         <IconPhoto />
       </RichTextEditor.Control>
       <input
+        id="image-upload-input"
         ref={fileInputRef}
         type="file"
         accept="image/jpeg, image/jpg, image/png, image/heic"
