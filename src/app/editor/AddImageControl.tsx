@@ -1,3 +1,4 @@
+import { RichTextEditor } from "@mantine/tiptap";
 import { IconPhoto } from "@tabler/icons-react";
 import { Editor } from "@tiptap/react";
 import React, { useRef } from "react";
@@ -19,44 +20,31 @@ export default function AddImageControl({ editor }: AddImageControlProps) {
         const data = fileReader.result;
         console.log("Base64 Image Data:", data);
         editor?.commands.insertImage({ src: data as string });
-        editor?.chain().focus().run(); // Add this line
+        editor?.chain().focus().run();
       };
     }
   };
 
   return (
-    <button
-      type="button"
-      onClick={(e) => {
-        e.preventDefault();
-        fileInputRef.current?.click();
-      }}
-      tabIndex={-1}
-      role="button"
-      style={{
-        position: "relative",
-        overflow: "hidden",
-        background: "none",
-        border: "none",
-        cursor: "pointer",
-      }}
-    >
-      <IconPhoto />
+    <>
+      <RichTextEditor.Control
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation(); // Add this line
+          fileInputRef.current?.click();
+        }}
+        tabIndex={-1}
+        role="button"
+      >
+        <IconPhoto />
+      </RichTextEditor.Control>
       <input
         ref={fileInputRef}
         type="file"
         accept="image/jpeg, image/jpg, image/png, image/heic"
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          opacity: 0,
-          cursor: "pointer",
-        }}
+        style={{ display: "none" }}
         onChange={handleFileChange}
       />
-    </button>
+    </>
   );
 }
