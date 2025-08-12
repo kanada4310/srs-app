@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Input Test</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .button-container {
+            position: relative;
+            width: 150px;
+            height: 50px;
+            background-color: #007bff;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1.2em;
+        }
+        .hidden-file-input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        Upload File
+        <input type="file" class="hidden-file-input" id="testFileInput">
+    </div>
+
+    <script>
+        const fileInput = document.getElementById('testFileInput');
+        fileInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                console.log('File selected:', file.name, 'Type:', file.type, 'Size:', file.size, 'bytes');
+                alert('File selected: ' + file.name);
+            } else {
+                console.log('No file selected.');
+                alert('No file selected.');
+            }
+        });
+
+        // Optional: Add a console log to confirm script is running
+        console.log('test_file_input.html script loaded.');
+    </script>
+</body>
+</html>
