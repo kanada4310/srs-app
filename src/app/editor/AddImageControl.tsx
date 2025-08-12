@@ -1,4 +1,3 @@
-import { RichTextEditor } from "@mantine/tiptap";
 import { IconPhoto } from "@tabler/icons-react";
 import { Editor } from "@tiptap/react";
 import React, { useRef } from "react";
@@ -31,13 +30,15 @@ export default function AddImageControl({ editor }: AddImageControlProps) {
 
   return (
     <>
-      <RichTextEditor.Control
+      <button
+        type="button"
         onClick={handleControlClick}
         tabIndex={-1}
         role="button"
+        style={{ background: "none", border: "none", cursor: "pointer" }}
       >
         <IconPhoto />
-      </RichTextEditor.Control>
+      </button>
       <input
         ref={fileInputRef}
         type="file"
