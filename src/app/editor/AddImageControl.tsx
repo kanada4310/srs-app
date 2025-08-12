@@ -1,7 +1,7 @@
 import { RichTextEditor } from "@mantine/tiptap";
 import { IconPhoto } from "@tabler/icons-react";
 import { Editor } from "@tiptap/react";
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 
 interface AddImageControlProps {
   editor: Editor | null;
@@ -9,6 +9,13 @@ interface AddImageControlProps {
 
 export default function AddImageControl({ editor }: AddImageControlProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    console.log(
+      "File input mounted/unmounted:",
+      fileInputRef.current ? "mounted" : "unmounted"
+    );
+  }, [fileInputRef.current]);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
