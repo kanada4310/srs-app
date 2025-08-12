@@ -24,15 +24,11 @@ export default function AddImageControl({ editor }: AddImageControlProps) {
     }
   };
 
-  const handleControlClick = () => {
-    fileInputRef.current?.click();
-  };
-
   return (
     <>
       <button
         type="button"
-        onClick={handleControlClick}
+        onClick={() => fileInputRef.current?.click()}
         tabIndex={-1}
         role="button"
         style={{ background: "none", border: "none", cursor: "pointer" }}
