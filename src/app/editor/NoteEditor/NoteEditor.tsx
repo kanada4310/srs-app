@@ -19,7 +19,6 @@ import {
 import StarterKit from "@tiptap/starter-kit";
 import React, { useRef, useEffect } from "react";
 
-import Image from "@tiptap/extension-image";
 import { ImageDrop } from "./ImageDrop";
 import classes from "./NoteEditor.module.css";
 import { NoteEditorControls } from "./NoteEditorControls";
