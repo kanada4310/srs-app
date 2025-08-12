@@ -25,19 +25,26 @@ export default function AddImageControl({ editor }: AddImageControlProps) {
     }
   };
 
+  const handleControlClick = () => {
+    fileInputRef.current?.click();
+  };
+
   return (
-    <label htmlFor="image-upload-input">
-      <RichTextEditor.Control>
+    <>
+      <RichTextEditor.Control
+        onClick={handleControlClick}
+        tabIndex={-1}
+        role="button"
+      >
         <IconPhoto />
       </RichTextEditor.Control>
       <input
-        id="image-upload-input"
         ref={fileInputRef}
         type="file"
         accept="image/jpeg, image/jpg, image/png, image/heic"
         style={{ display: "none" }}
         onChange={handleFileChange}
       />
-    </label>
+    </>
   );
 }
