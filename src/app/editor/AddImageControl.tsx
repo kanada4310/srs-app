@@ -25,13 +25,9 @@ export default function AddImageControl({ editor }: AddImageControlProps) {
     }
   };
 
-  const handleControlClick = () => {
-    fileInputRef.current?.click();
-  };
-
   return (
-    <>
-      <RichTextEditor.Control onClick={handleControlClick}>
+    <label>
+      <RichTextEditor.Control>
         <IconPhoto />
       </RichTextEditor.Control>
       <input
@@ -41,6 +37,6 @@ export default function AddImageControl({ editor }: AddImageControlProps) {
         style={{ display: "none" }}
         onChange={handleFileChange}
       />
-    </>
+    </label>
   );
 }
