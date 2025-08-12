@@ -8,6 +8,7 @@ interface AddImageControlProps {
 }
 
 export default function AddImageControl({ editor }: AddImageControlProps) {
+  console.log("AddImageControl rendered");
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -20,12 +21,11 @@ export default function AddImageControl({ editor }: AddImageControlProps) {
     if (currentInput) {
       const nativeChangeHandler = (_event: Event) => {
         console.log("Native change event fired!");
-        // You might want to call handleFileChange here directly if the React onChange is truly not firing
-        // handleFileChange(event as React.ChangeEvent<HTMLInputElement>);
       };
       currentInput.addEventListener("change", nativeChangeHandler);
 
       return () => {
+        console.log("AddImageControl unmounted");
         currentInput.removeEventListener("change", nativeChangeHandler);
       };
     }
